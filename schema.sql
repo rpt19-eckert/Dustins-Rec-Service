@@ -11,7 +11,6 @@ CREATE TABLE listings (
   listing_category VARCHAR(100) NOT NULL,
   night_price FLOAT NOT NULL,
   avg_review FLOAT NOT NULL,
-  phone_number INT NOT NULL,
   num_review INT NOT NULL,
   num_beds INT NOT NULL,
   listing_title VARCHAR(100) NOT NULL,

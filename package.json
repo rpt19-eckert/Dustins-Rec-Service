@@ -1,17 +1,30 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
+  "name": "airbnb-recommendations",
+  "version": "1.0.0",
+  "description": "P3-recommendations",
+  "author": "Youzhu Shi",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "client": "webpack -d --watch",
+    "server": "nodemon server/index.js"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.0",
+    "jquery": "^3.1.1",
+    "mysql": "^2.13.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }

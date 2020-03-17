@@ -1,3 +1,4 @@
+//forgot that I had to create a branch. Please review the seedDB.js file. Thanks!
 const loremIpsum = require("lorem-ipsum").loremIpsum;
 const mysql = require('mysql');
 

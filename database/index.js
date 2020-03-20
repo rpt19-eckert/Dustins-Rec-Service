@@ -13,7 +13,7 @@ connection.connect(function(err) {
 });
 
 var selectAll = function(callback) {
-  connection.query('SELECT * FROM listings', function(err, results, fields) {
+  connection.query('SELECT * FROM listings WHERE listing_id IN (10001,10002,10003,10004,10005)', function(err, results, fields) {
     if(err) {
       callback(err, null);
     } else {
@@ -22,8 +22,9 @@ var selectAll = function(callback) {
   });
 };
 
-var selectLocation = function(listing, callback) {
-  connection.query('SELECT * FROM listings WHERE listing_id = ?',[listing.id], function(err, results, fields) {
+var selectImages = function(listing, callback) {
+  let sql = 'SELECT * FROM listing_images WHERE listing_id IN (10001,10002,10003,10004,10005)'
+  connection.query(sql, function(err, results, fields) {
     if(err) {
       callback(err, null);
     } else {
@@ -33,4 +34,4 @@ var selectLocation = function(listing, callback) {
 };
 
 module.exports.selectAll = selectAll;
-module.exports.selectLocation = selectLocation;
+module.exports.selectImages = selectImages;

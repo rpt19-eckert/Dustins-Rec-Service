@@ -34,3 +34,5 @@ app.get('/images', urlencodedParser, function (req, res) {
 app.listen(3003, function() {
   console.log('listening on port 3003!');
 });
+
+module.exports = app;

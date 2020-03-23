@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get('/listings', function (req, res) {
-  db.selectAll(function(err, data) {
+  db.selectAll(req.body, function(err, data) {
     if(err) {
       res.sendStatus(500);
     } else {

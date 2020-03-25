@@ -9,10 +9,10 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  //console.log("Connected!");
 });
 
-var selectAll = function(callback) {
+var selectAll = function(listing, callback) {
   connection.query('SELECT * FROM listings WHERE listing_id IN (10001,10002,10003,10004,10005)', function(err, results, fields) {
     if(err) {
       callback(err, null);

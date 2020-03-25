@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get('/listings', function (req, res) {
-  db.selectAll(function(err, data) {
+  db.selectAll(req.body, function(err, data) {
     if(err) {
       res.sendStatus(500);
     } else {
@@ -34,3 +34,5 @@ app.get('/images', urlencodedParser, function (req, res) {
 app.listen(3003, function() {
   console.log('listening on port 3003!');
 });
+
+module.exports = app;

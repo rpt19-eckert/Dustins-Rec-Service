@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-
+import ListOfImages from './ListOfImages.jsx';
 
 class Images extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Images extends React.Component {
   render() {
     return (
       <div>
-        <a aria-label="Blue Boy Club House / Music Venue" href=""></a>
+        <ListOfImages images={this.state.images}/>
       </div>
     );
   }

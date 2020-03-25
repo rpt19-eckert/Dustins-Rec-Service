@@ -1,5 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import ListOfItems from './ListOfItems.jsx';
+
 
 class Details extends React.Component {
   constructor(props) {
@@ -27,6 +29,7 @@ class Details extends React.Component {
   render() {
     return (
       <div>
+        <ListOfItems details={this.state.listings} />
       </div>
     );
   }

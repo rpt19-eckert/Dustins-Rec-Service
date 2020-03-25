@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Images from './components/images.jsx';
-import Details from './components/details.jsx';
+import Images from './components/Images.jsx';
+import Details from './components/Details.jsx';
 
 class App extends React.Component {
   constructor(props) {

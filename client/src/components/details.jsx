@@ -28,7 +28,7 @@ class Details extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="items">
         <ListOfItems details={this.state.listings} />
       </div>
     );

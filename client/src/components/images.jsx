@@ -27,7 +27,7 @@ class Images extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="images">
         <ListOfImages images={this.state.images}/>
       </div>
     );

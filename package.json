@@ -9,7 +9,8 @@
   },
   "scripts": {
     "client": "webpack -d --watch",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "seed": "node database/seedDB.js"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -26,6 +27,7 @@
     "babel-preset-react": "^6.23.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "lorem-ipsum": "^2.0.3",
+    "minimist": "^1.2.5",
     "webpack": "^2.2.1"
   }
 }

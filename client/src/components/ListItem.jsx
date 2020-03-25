@@ -8,7 +8,7 @@ const ListItem = (props) => (
       <span> · </span>
       {props.detail.num_beds}&nbsp;beds
       <span className="star">star
-      <span className="rating">&nbsp;{props.detail.avg_review.toString().slice(0,4)}</span>
+<span className="rating">&nbsp;{props.detail.avg_review.toString().slice(0,4)} ({props.detail.num_review})</span>
       </span>
     </div>
     <div className="line2">{props.detail.listing_title}</div>

@@ -13,11 +13,11 @@ class App extends React.Component {
     return (
       <div>
         <div>
-        <h2>More homes you may like</h2>
-        <Images />
-        <Details />
-      </div>
-    </div>)
+          <div className="title">More homes you may like</div>
+          <Images />
+          <Details />
+        </div>
+      </div>);
   }
 }
 

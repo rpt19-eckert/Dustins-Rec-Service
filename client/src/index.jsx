@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Images from './components/images.jsx';
-import Details from './components/details.jsx';
+import Images from './components/Images.jsx';
+import Details from './components/Details.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,11 +13,11 @@ class App extends React.Component {
     return (
       <div>
         <div>
-        <h2>More homes you may like</h2>
-        <Images />
-        <Details />
-      </div>
-    </div>)
+          <div className="title">More homes you may like</div>
+          <Images />
+          <Details />
+        </div>
+      </div>);
   }
 }
 

@@ -9,7 +9,7 @@ class Details extends React.Component {
     this.state = {
       listings: []
     };
-   }
+  }
 
   componentDidMount() {
     $.ajax({
@@ -17,8 +17,8 @@ class Details extends React.Component {
       success: (data) => {
         this.setState({
           listings: data
-        })
-        console.log(data)
+        });
+        console.log(data);
       },
       error: (err) => {
         console.log('err', err);

@@ -8,7 +8,7 @@ class Images extends React.Component {
     this.state = {
       images: []
     };
-   }
+  }
 
   componentDidMount() {
     $.ajax({
@@ -16,7 +16,7 @@ class Images extends React.Component {
       success: (data) => {
         this.setState({
           images: data
-        })
+        });
         console.log(data);
       },
       error: (err) => {

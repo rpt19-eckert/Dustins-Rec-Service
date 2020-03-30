@@ -4,7 +4,7 @@ import $ from 'jquery';
 import Images from './components/Images.jsx';
 import Details from './components/Details.jsx';
 
-class App extends React.Component {
+class RecommendationService extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -21,4 +21,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<RecommendationService />, document.getElementById('recommendations'));

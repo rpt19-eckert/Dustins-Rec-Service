@@ -24,3 +24,7 @@ CREATE TABLE listing_images (
   FOREIGN KEY (listing_id)
     REFERENCES listings(listing_id)
 );
+
+/*  Execute this file from the command line by typing:
+ *    mysql -u root < schema.sql
+ *  to create the database and the tables.*/

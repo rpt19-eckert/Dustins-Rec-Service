@@ -33,7 +33,7 @@ app.get('/images', urlencodedParser, function (req, res) {
 });
 
 app.get('/:id', (req, res) => {
-  return res.redirect('/');
+  res.sendFile('/Users/shiyouzhu/Documents/FEC-Youzhu-recommendation-proxy/FEC-Youzhu-recommendation/client/dist/index.html');
 });
 
 app.listen(3003, function() {

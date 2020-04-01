@@ -14,6 +14,7 @@ app.get('/listings', function (req, res) {
     } else {
       res.json(data);
       console.log(data);
+
     }
   });
 });
@@ -29,6 +30,10 @@ app.get('/images', urlencodedParser, function (req, res) {
       console.log(data);
     }
   });
+});
+
+app.get('/:id', (req, res) => {
+  return res.redirect('/');
 });
 
 app.listen(3003, function() {

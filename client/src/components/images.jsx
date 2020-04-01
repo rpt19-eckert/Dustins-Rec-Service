@@ -12,7 +12,7 @@ class Images extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/images',
+      url: 'http://localhost:3003/images',
       success: (data) => {
         this.setState({
           images: data

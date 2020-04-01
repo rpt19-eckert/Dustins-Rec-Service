@@ -66,6 +66,11 @@ span .item {
 .rating {
   padding-left: 2px !important;
 }
+
+.line2.regularFont {
+  white-space: nowrap;
+}
+
 .regularFont {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-weight: 400 !important;
@@ -80,3 +85,4 @@ span .item {
 .greyFont {
   color: rgb(113, 113, 113) !important;
 }
+

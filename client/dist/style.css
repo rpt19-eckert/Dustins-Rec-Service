@@ -22,9 +22,15 @@ body {
 
 span .image {
   display: inline-block;
-  margin: 2px 6px 30px 6px;
-  width: 300px;
-  border: 30px;
+  margin: 2px 2px 30px 2px;
+  width: 270px;
+  border: 10px;
+  position: relative !important;
+}
+
+span .carousel {
+  display: inline-block;
+  margin: 2px 2px 30px 2px;
   position: relative !important;
 }
 
@@ -42,13 +48,13 @@ span .item {
 
 .images {
   position: absolute !important;
-  width: 1000px !important;
-  height: 200px !important;
+  width: 1050px !important;
+  height: 300px !important;
 }
 
 .items {
   position: absolute !important;
-  width: 1000px !important;
+  width: 1050px !important;
   height: 200px !important;
 }
 
@@ -86,3 +92,31 @@ span .item {
   color: rgb(113, 113, 113) !important;
 }
 
+
+.image-slide {
+  display: inline-block;
+  margin: 2px 6px 30px 6px;
+  width: 300px;
+  border: 30px;
+  position: relative !important;
+	transition: background-image .3s ease-in-out;
+}
+
+.slide-arrow {
+	color: rgb(241, 0, 80);
+	cursor: pointer;
+	font-size: 1.5rem;
+  display: inline-block;
+  position: relative !important;
+  z-index: 1;
+  margin: 0px 0px 0px 0px;
+  top: -90px;
+}
+
+.slide-arrow.right {
+	right: 2rem;
+}
+
+.slide-arrow.left {
+	left: 2rem;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import ListOfImages from './ListOfImages.jsx';
+import Carousel from './Carousel.jsx';
 
 class Images extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Images extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/images',
+      url: 'http://localhost:3003/images',
       success: (data) => {
         this.setState({
           images: data

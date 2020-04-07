@@ -13,7 +13,9 @@ connection.connect(function(err) {
 });
 
 var selectAll = function(listing, callback) {
-  connection.query('SELECT * FROM listings WHERE listing_id IN (10001,10002,10003,10004,10005)', function(err, results, fields) {
+  let ramdomListing = Math.floor(Math.random() * 100) + 10001
+  let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing},${ramdomListing + 1},${ramdomListing +2},${ramdomListing + 3},${ramdomListing + 4})`
+  connection.query(sql, function(err, results, fields) {
     if(err) {
       callback(err, null);
     } else {
@@ -23,7 +25,8 @@ var selectAll = function(listing, callback) {
 };
 
 var selectImages = function(listing, callback) {
-  let sql = 'SELECT * FROM listing_images WHERE listing_id IN (10001,10002,10003,10004,10005)'
+  let ramdomListing = Math.floor(Math.random() * 100) + 10001
+  let sql = `SELECT * FROM listing_images WHERE listing_id IN (${ramdomListing},${ramdomListing + 1},${ramdomListing +2},${ramdomListing + 3},${ramdomListing + 4})`
   connection.query(sql, function(err, results, fields) {
     if(err) {
       callback(err, null);

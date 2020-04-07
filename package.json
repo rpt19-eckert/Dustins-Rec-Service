@@ -10,7 +10,8 @@
   "scripts": {
     "client": "webpack -d --watch",
     "server": "nodemon server/index.js",
-    "seed": "node database/seedDB.js"
+    "seed": "node database/seedDB.js",
+    "test": "jest"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -37,8 +38,10 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-nodeunit": "~0.4.1",
     "grunt-contrib-uglify": "~0.5.0",
+    "jest": "^25.2.4",
     "lorem-ipsum": "^2.0.3",
     "minimist": "^1.2.5",
+    "path": "^0.12.7",
     "react-test-renderer": "^16.13.1",
     "superagent": "^5.2.2",
     "supertest": "^4.0.2",

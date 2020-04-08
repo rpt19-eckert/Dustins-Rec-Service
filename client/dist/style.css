@@ -20,10 +20,9 @@ body {
   padding-bottom: 20px;
 }
 
-span .image {
+span .singleListing {
   display: inline-block;
   margin: 2px 2px 30px 2px;
-  width: 270px;
   border: 10px;
   position: relative !important;
 }
@@ -34,9 +33,8 @@ span .carousel {
   position: relative !important;
 }
 
-span .item {
-  display: inline-block;
-  margin: 220px 6px 2px 6px;
+div .item {
+  margin: 2px 6px 2px 6px;
   width: 300px;
   border: 30px;
   position: relative !important;
@@ -92,6 +90,12 @@ span .item {
   color: rgb(113, 113, 113) !important;
 }
 
+.listingCarousel {
+  position: relative;
+  padding-top: 75%;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+}
 
 .image-slide {
   display: inline-block;
@@ -102,8 +106,8 @@ span .item {
 	transition: background-image .3s ease-in-out;
 }
 
-.slide-arrow {
-	color: rgb(241, 0, 80);
+.slide-arrow.image  {
+	color: rgb(215, 217, 238);
 	cursor: pointer;
 	font-size: 1.5rem;
   display: inline-block;
@@ -113,10 +117,35 @@ span .item {
   top: -90px;
 }
 
-.slide-arrow.right {
+
+.slide-arrow.listing  {
+  color: rgb(241, 0, 80);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 1.5rem;;
+  top: 59%;
+  margin: 0px 0px 0px 0px;
+}
+
+.slide-arrow.left.image {
+	left: 2rem;
+}
+
+.slide-arrow.right.image {
 	right: 2rem;
 }
 
-.slide-arrow.left {
-	left: 2rem;
+.slide-arrow.left.listing {
+  left: -1rem;
+  top: 11.5rem;
+}
+
+.slide-arrow.right.listing {
+  top: -13.5rem;
+	right: -65rem;
 }

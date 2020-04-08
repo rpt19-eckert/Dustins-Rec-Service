@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import ListOfImages from './ListOfImages.jsx';
-import Carousel from './Carousel.jsx';
+
 
 class Images extends React.Component {
   constructor(props) {

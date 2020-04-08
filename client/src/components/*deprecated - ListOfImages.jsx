@@ -4,7 +4,7 @@ import Carousel from './Carousel.jsx';
 
 
 const ListOfImages = (props) => {
-  console.log(props.images);
+
   return (
     <span>
       {props.images.slice(0, 3).map((image, index)=>

@@ -48,14 +48,16 @@ class Carousel extends React.Component {
         <Arrow
           direction="left"
           clickFunction={ this.previousSlide }
-          glyph="&#9664;" />
+          glyph="&#9664;"
+          type="image" />
 
         <ImageSlide url={ this.props.imgUrls[this.state.currentImageIndex] } />
 
         <Arrow
           direction="right"
           clickFunction={ this.nextSlide }
-          glyph="&#9654;" />
+          glyph="&#9654;"
+          type="image" />
       </span>
     );
   }

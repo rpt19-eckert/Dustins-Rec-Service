@@ -2,7 +2,7 @@ import React from 'react';
 
 const Arrow = ({ direction, clickFunction, glyph, type }) => (
   <div
-    className={ `slide-arrow ${direction} ${type}` }
+    className={ `slide-arrow ${direction} ${type} recommendations` }
     onClick={ clickFunction }>
     { glyph }
   </div>

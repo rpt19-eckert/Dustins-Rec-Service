@@ -44,19 +44,19 @@ class ListingCarousel extends React.Component {
 
   render () {
     return (
-      <span className="listingCarousel">
+      <span className="listingCarousel recommendations">
         <Arrow
           direction="left"
           clickFunction={ this.previousListing }
           glyph="&#9664;"
           type="listing"/>
-        <span className="singleListing" >
+        <span className="singleListing recommendations" >
           <Listing details={this.props.details[this.state.currentListingIndex]} images={this.props.images.slice(this.state.currentListingIndex * 5, this.state.currentListingIndex * 5 + 5) } currentIndex={this.state.currentListingIndex}/>
         </span>
-        <span className="singleListing" >
+        <span className="singleListing recommendations" >
           <Listing details={this.props.details[this.state.currentListingIndex + 1]} images={this.props.images.slice(this.state.currentListingIndex * 5 + 5, this.state.currentListingIndex * 5 + 10) } currentIndex={this.state.currentListingIndex + 1}/>
         </span>
-        <span className="singleListing" >
+        <span className="singleListing recommendations" >
           <Listing details={this.props.details[this.state.currentListingIndex + 2]} images={this.props.images.slice(this.state.currentListingIndex * 5 + 10, this.state.currentListingIndex * 5 + 15) } currentIndex={this.state.currentListingIndex + 2}/>
         </span>
         <Arrow

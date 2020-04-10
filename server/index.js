@@ -8,6 +8,11 @@ const app = express();
 app.use(express.static(__dirname + '/../client/dist'));
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
     if (err) {

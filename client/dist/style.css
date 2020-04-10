@@ -1,4 +1,4 @@
-body {
+div #recommendations {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-size: 14px;
   line-height: 1.43;
@@ -9,7 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.title {
+.title.recommendations {
   overflow-wrap: break-word !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-size: 24px !important;
@@ -20,20 +20,20 @@ body {
   padding-bottom: 20px;
 }
 
-span .singleListing {
+span .singleListing.recommendations {
   display: inline-block;
   margin: 2px 2px 30px 2px;
   border: 10px;
   position: relative !important;
 }
 
-span .carousel {
+span .carousel.recommendations {
   display: inline-block;
   margin: 2px 2px 30px 2px;
   position: relative !important;
 }
 
-div .item {
+div .item.recommendations {
   margin: 2px 6px 2px 6px;
   width: 300px;
   border: 30px;
@@ -44,60 +44,60 @@ div .item {
   text-overflow: ellipsis;
 }
 
-.images {
+.images.recommendations {
   position: absolute !important;
   width: 1050px !important;
   height: 300px !important;
 }
 
-.items {
+.items.recommendations {
   position: absolute !important;
   width: 1050px !important;
   height: 200px !important;
 }
 
-.review {
+.review.recommendations {
   float: right
 }
 
-.icon {
+.icon.recommendations {
   display: inline-block;
   width: 12px !important;
   height: 12px !important;
   fill: #FF385C !important;
 }
 
-.rating {
+.rating.recommendations {
   padding-left: 2px !important;
 }
 
-.line2.regularFont {
+.line2.regularFont.recommendations {
   white-space: nowrap;
 }
 
-.regularFont {
+.regularFont.recommendations {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-weight: 400 !important;
   color: rgb(34, 34, 34) !important;
   font-size: 16px !important;
   line-height: 20px !important;
 }
-.price {
+.price.recommendations {
   font-weight: 800 !important;
 }
 
-.greyFont {
+.greyFont.recommendations {
   color: rgb(113, 113, 113) !important;
 }
 
-.listingCarousel {
+.listingCarousel.recommendations {
   position: relative;
   padding-top: 75%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
 }
 
-.image-slide {
+.image-slide.recommendations {
   display: inline-block;
   margin: 2px 6px 30px 6px;
   width: 300px;
@@ -106,7 +106,7 @@ div .item {
 	transition: background-image .3s ease-in-out;
 }
 
-.slide-arrow.image  {
+.slide-arrow.image.recommendations {
 	color: rgb(215, 217, 238);
 	cursor: pointer;
 	font-size: 1.5rem;
@@ -118,7 +118,7 @@ div .item {
 }
 
 
-.slide-arrow.listing  {
+.slide-arrow.listing.recommendations  {
   color: rgb(241, 0, 80);
   cursor: pointer;
   position: relative;
@@ -132,20 +132,20 @@ div .item {
   margin: 0px 0px 0px 0px;
 }
 
-.slide-arrow.left.image {
+.slide-arrow.left.image.recommendations {
 	left: 2rem;
 }
 
-.slide-arrow.right.image {
+.slide-arrow.right.image.recommendations {
 	right: 2rem;
 }
 
-.slide-arrow.left.listing {
+.slide-arrow.left.listing.recommendations {
   left: -1rem;
   top: 11.5rem;
 }
 
-.slide-arrow.right.listing {
+.slide-arrow.right.listing.recommendations {
   top: -13.5rem;
 	right: -65rem;
 }

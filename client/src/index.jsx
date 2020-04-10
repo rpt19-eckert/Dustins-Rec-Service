@@ -10,7 +10,7 @@ class RecommendationService extends React.Component {
   render () {
     return (
       <div>
-        <div className="title">More homes you may like</div>
+        <div className="title" >More homes you may like</div>
         <ListingData />
       </div>);
   }

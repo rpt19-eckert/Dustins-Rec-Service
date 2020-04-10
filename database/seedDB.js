@@ -48,7 +48,7 @@ for (let i = 0; i < 100; i ++) {
 for (let i = 0; i < 100; i ++) {
   let listing_id = 10001 + i;
   for (let j = 0; j < 5; j++) {
-    let image_url = 'https://picsum.photos/450/300'
+    let image_url = `https://picsum.photos/300/200?random=${listing_id}${j}`
     let sql = `INSERT INTO listing_images
     VALUES (${listing_id}, "${image_url}");`
     connection.query(sql, function (err, result, fields) {

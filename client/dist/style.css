@@ -1,4 +1,4 @@
-div #recommendations {
+body #recommendations {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
   font-size: 14px;
   line-height: 1.43;
@@ -9,7 +9,7 @@ div #recommendations {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.title.recommendations {
+#recommendations .title {
   overflow-wrap: break-word !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-size: 24px !important;
@@ -20,20 +20,20 @@ div #recommendations {
   padding-bottom: 20px;
 }
 
-span .singleListing.recommendations {
+#recommendations span .singleListing {
   display: inline-block;
   margin: 2px 2px 30px 2px;
   border: 10px;
   position: relative !important;
 }
 
-span .carousel.recommendations {
+#recommendations span .carousel {
   display: inline-block;
   margin: 2px 2px 30px 2px;
   position: relative !important;
 }
 
-div .item.recommendations {
+#recommendations div .item {
   margin: 2px 6px 2px 6px;
   width: 300px;
   border: 30px;
@@ -44,60 +44,63 @@ div .item.recommendations {
   text-overflow: ellipsis;
 }
 
-.images.recommendations {
+#recommendations .images {
   position: absolute !important;
   width: 1050px !important;
   height: 300px !important;
 }
 
-.items.recommendations {
+#recommendations .items {
   position: absolute !important;
   width: 1050px !important;
   height: 200px !important;
 }
 
-.review.recommendations {
+#recommendations .review {
   float: right
 }
 
-.icon.recommendations {
+#recommendations .icon {
   display: inline-block;
   width: 12px !important;
   height: 12px !important;
   fill: #FF385C !important;
 }
 
-.rating.recommendations {
-  padding-left: 2px !important;
+#recommendations .rating {
+  font-weight: 400 !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 }
 
-.line2.regularFont.recommendations {
+#recommendations .line2.regularFont {
   white-space: nowrap;
 }
 
-.regularFont.recommendations {
+#recommendations .regularFont {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-weight: 400 !important;
   color: rgb(34, 34, 34) !important;
   font-size: 16px !important;
   line-height: 20px !important;
 }
-.price.recommendations {
+#recommendations .price {
   font-weight: 800 !important;
 }
 
-.greyFont.recommendations {
+#recommendations .greyFont {
   color: rgb(113, 113, 113) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
 }
 
-.listingCarousel.recommendations {
+#recommendations .listingCarousel {
   position: relative;
   padding-top: 75%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
 }
 
-.image-slide.recommendations {
+#recommendations .image-slide {
   display: inline-block;
   margin: 2px 6px 30px 6px;
   width: 300px;
@@ -106,7 +109,7 @@ div .item.recommendations {
 	transition: background-image .3s ease-in-out;
 }
 
-.slide-arrow.image.recommendations {
+#recommendations .slide-arrow.image {
 	color: rgb(215, 217, 238);
 	cursor: pointer;
 	font-size: 1.5rem;
@@ -118,7 +121,7 @@ div .item.recommendations {
 }
 
 
-.slide-arrow.listing.recommendations  {
+#recommendations .slide-arrow.listing  {
   color: rgb(241, 0, 80);
   cursor: pointer;
   position: relative;
@@ -132,20 +135,21 @@ div .item.recommendations {
   margin: 0px 0px 0px 0px;
 }
 
-.slide-arrow.left.image.recommendations {
+#recommendations .slide-arrow.left.image {
 	left: 2rem;
 }
 
-.slide-arrow.right.image.recommendations {
+#recommendations .slide-arrow.right.image {
 	right: 2rem;
 }
 
-.slide-arrow.left.listing.recommendations {
+#recommendations .slide-arrow.left.listing {
   left: -1rem;
   top: 11.5rem;
 }
 
-.slide-arrow.right.listing.recommendations {
+#recommendations .slide-arrow.right.listing {
   top: -13.5rem;
 	right: -65rem;
 }
+

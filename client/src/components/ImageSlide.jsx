@@ -4,7 +4,7 @@ const ImageSlide = ({ url }) => {
   let imgUrl = url.image_url;
   console.log('imageslide', url);
   return (
-    <span className="image recommendations">
+    <span className="image">
       <img src={imgUrl}></img>
     </span>
 

@@ -44,7 +44,7 @@ class Carousel extends React.Component {
 
   render () {
     return (
-      <span className="carousel recommendations">
+      <span className="carousel">
         <Arrow
           direction="left"
           clickFunction={ this.previousSlide }

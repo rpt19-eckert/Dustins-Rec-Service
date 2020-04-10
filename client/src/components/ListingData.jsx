@@ -43,7 +43,7 @@ class ListingData extends React.Component {
 
   render() {
     return (
-      <div className="listing recommendations">
+      <div className="listing">
         <ListingCarousel details={this.state.listings} images={this.state.images} />
       </div>
     );

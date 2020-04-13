@@ -7,29 +7,33 @@ div #recommendations {
   margin: 100px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-left: 30px;
 }
 
 #recommendations .title {
   overflow-wrap: break-word !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-size: 24px !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
   line-height: 1.25em !important;
   color: rgb(72, 72, 72) !important;
-  margin: 2px 6px 2px 6px;
+  margin: 2px 6px 0px 6px;
   padding-bottom: 20px;
+  padding-left: 25px;
+  padding-top: 25px;
 }
 
 #recommendations span .singleListing {
   display: inline-block;
-  margin: 2px 2px 30px 2px;
-  border: 10px;
+  margin: 2px 2px 2px 2px;
+  border: 2px;
+  top: -60px;
   position: relative !important;
 }
 
 #recommendations span .carousel {
   display: inline-block;
-  margin: 2px 2px 30px 2px;
+  margin: 2px -35px 10px 2px;
   position: relative !important;
 }
 
@@ -42,6 +46,7 @@ div #recommendations {
     overflow-x: hidden;
     overflow-y: hidden;
   text-overflow: ellipsis;
+  left: 20px;
 }
 
 #recommendations .images {
@@ -144,12 +149,13 @@ div #recommendations {
 }
 
 #recommendations .slide-arrow.left.listing {
-  left: -1rem;
-  top: 11.5rem;
+  left: -0.4rem;
+  top: 7.7rem;
 }
 
 #recommendations .slide-arrow.right.listing {
-  top: -13.5rem;
-	right: -65rem;
+  top: -14.3rem;
+  right: -60.8rem;
 }
+
 

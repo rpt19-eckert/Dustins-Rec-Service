@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Arrow from './Arrow.jsx';
+import RightArrow from './RightArrow.jsx';
+import LeftArrow from './LeftArrow.jsx';
 import ImageSlide from './ImageSlide.jsx';
+import Favorite from './Favorite.jsx';
 
 
 
@@ -14,6 +16,7 @@ class Carousel extends React.Component {
     };
     this.previousSlide = this.previousSlide.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
+    this.addToFavorite = this.addToFavorite.bind(this);
   }
 
   previousSlide () {
@@ -42,10 +45,15 @@ class Carousel extends React.Component {
     });
   }
 
+  addToFavorite () {
+    console.log('added to favorite');
+  }
+
   render () {
     return (
       <span className="carousel">
-        <Arrow
+        <Favorite clickFunction={ this.addToFavorite }/>
+        <LeftArrow
           direction="left"
           clickFunction={ this.previousSlide }
           glyph="&#9664;"
@@ -53,7 +61,7 @@ class Carousel extends React.Component {
 
         <ImageSlide url={ this.props.imgUrls[this.state.currentImageIndex] } />
 
-        <Arrow
+        <RightArrow
           direction="right"
           clickFunction={ this.nextSlide }
           glyph="&#9654;"

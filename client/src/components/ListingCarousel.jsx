@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Arrow from './Arrow.jsx';
+import LeftArrowListing from './LeftArrowListing.jsx';
+import RightArrowListing from './RightArrowListing.jsx';
 import ImageSlide from './ImageSlide.jsx';
 import Listing from './Listing.jsx';
 
@@ -45,7 +46,7 @@ class ListingCarousel extends React.Component {
   render () {
     return (
       <span className="listingCarousel">
-        <Arrow
+        <LeftArrowListing
           direction="left"
           clickFunction={ this.previousListing }
           glyph="&#9664;"
@@ -59,7 +60,7 @@ class ListingCarousel extends React.Component {
         <span className="singleListing" >
           <Listing details={this.props.details[this.state.currentListingIndex + 2]} images={this.props.images.slice(this.state.currentListingIndex * 5 + 10, this.state.currentListingIndex * 5 + 15) } currentIndex={this.state.currentListingIndex + 2}/>
         </span>
-        <Arrow
+        <RightArrowListing
           direction="right"
           clickFunction={ this.nextListing }
           glyph="&#9654;"

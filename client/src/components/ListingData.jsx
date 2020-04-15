@@ -14,6 +14,7 @@ class ListingData extends React.Component {
   }
 
   componentDidMount() {
+
     $.ajax({
       url: 'http://localhost:3003/listings',
       success: (data) => {
@@ -27,24 +28,24 @@ class ListingData extends React.Component {
       }
     });
 
-    $.ajax({
-      url: 'http://localhost:3003/images',
-      success: (data) => {
-        this.setState({
-          images: data
-        });
-        console.log(data);
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
+  //   $.ajax({
+  //     url: 'http://localhost:3003/images',
+  //     success: (data) => {
+  //       this.setState({
+  //         images: data
+  //       });
+  //       console.log(data);
+  //     },
+  //     error: (err) => {
+  //       console.log('err', err);
+  //     }
+  //   });
   }
 
   render() {
     return (
       <div className="listing">
-        <ListingCarousel details={this.state.listings} images={this.state.images} />
+        <ListingCarousel details={this.state.listings} />
       </div>
     );
   }

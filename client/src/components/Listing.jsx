@@ -11,7 +11,7 @@ class Listing extends React.Component {
   render () {
     return (
       <span>
-        <Carousel imgUrls={this.props.images}/>
+        <Carousel listingId={this.props.details} />
         <ListItem detail={this.props.details}/>
       </span>);
   }

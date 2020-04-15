@@ -243,4 +243,10 @@ div #recommendations {
 
 #recommendations img {
   border-radius: 6px;
+  height: 200px;
+  width: 300px;
+}
+
+#recommendations button {
+  display: none;
 }

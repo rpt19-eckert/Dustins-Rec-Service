@@ -158,6 +158,7 @@ const sampleDetails = [
     'is_fav': 0
   }
 ];
+const sampleImages2 = ['https://fec-photos.s3-us-west-1.amazonaws.com/coverPics/Cover02Small.jpg', 'https://fec-photos.s3-us-west-1.amazonaws.com/otherPics/randomListingPic46Small.jpg'];
 
-const sampleData = [sampleImages, sampleDetails];
+const sampleData = [sampleImages, sampleDetails, sampleImages2];
 export default sampleData;

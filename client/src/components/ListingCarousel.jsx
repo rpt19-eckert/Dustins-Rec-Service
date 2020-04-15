@@ -23,7 +23,7 @@ class ListingCarousel extends React.Component {
     const lastIndex = this.props.details.length - 1;
     const { currentListingIndex } = this.state;
     const shouldResetIndex = currentListingIndex === 0;
-    const index = shouldResetIndex ? lastIndex : currentListingIndex - 1;
+    const index = shouldResetIndex ? 0 : currentListingIndex - 1;
 
     this.setState({
       currentListingIndex: index
@@ -36,7 +36,7 @@ class ListingCarousel extends React.Component {
     const lastIndex = this.props.details.length - 1;
     const { currentListingIndex } = this.state;
     const shouldResetIndex = currentListingIndex === lastIndex;
-    const index = shouldResetIndex ? 0 : currentListingIndex + 1;
+    const index = shouldResetIndex ? lastIndex : currentListingIndex + 1;
 
     this.setState({
       currentListingIndex: index
@@ -49,7 +49,6 @@ class ListingCarousel extends React.Component {
         <LeftArrowListing
           direction="left"
           clickFunction={ this.previousListing }
-          glyph="&#9664;"
           type="listing"/>
         <span className="singleListing" >
           <Listing details={this.props.details[this.state.currentListingIndex]} images={this.props.images.slice(this.state.currentListingIndex * 5, this.state.currentListingIndex * 5 + 5) } currentIndex={this.state.currentListingIndex}/>
@@ -63,7 +62,6 @@ class ListingCarousel extends React.Component {
         <RightArrowListing
           direction="right"
           clickFunction={ this.nextListing }
-          glyph="&#9654;"
           type="listing" />
       </span>
     );

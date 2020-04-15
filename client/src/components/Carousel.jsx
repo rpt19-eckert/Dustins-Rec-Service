@@ -21,11 +21,11 @@ class Carousel extends React.Component {
 
   previousSlide () {
     console.log('previous slide props', this.props);
-    console.log('state', this.state.currentImageIndex);
+    console.log('state current image index', this.state.currentImageIndex);
     const lastIndex = this.props.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === 0;
-    const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
+    const index = shouldResetIndex ? 0 : currentImageIndex - 1;
 
     this.setState({
       currentImageIndex: index
@@ -34,12 +34,11 @@ class Carousel extends React.Component {
 
   nextSlide () {
     console.log('next slide props', this.props);
-    console.log('state', this.state.currentImageIndex);
+    console.log('state current image index', this.state.currentImageIndex);
     const lastIndex = this.props.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
-    const index = shouldResetIndex ? 0 : currentImageIndex + 1;
-
+    const index = shouldResetIndex ? lastIndex : currentImageIndex + 1;
     this.setState({
       currentImageIndex: index
     });
@@ -56,7 +55,6 @@ class Carousel extends React.Component {
         <LeftArrow
           direction="left"
           clickFunction={ this.previousSlide }
-          glyph="&#9664;"
           type="image" />
 
         <ImageSlide url={ this.props.imgUrls[this.state.currentImageIndex] } />
@@ -64,7 +62,6 @@ class Carousel extends React.Component {
         <RightArrow
           direction="right"
           clickFunction={ this.nextSlide }
-          glyph="&#9654;"
           type="image" />
       </span>
     );

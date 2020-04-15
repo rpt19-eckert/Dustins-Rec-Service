@@ -241,3 +241,6 @@ div #recommendations {
   border-image: initial;
 }
 
+#recommendations img {
+  border-radius: 6px;
+}

@@ -32,11 +32,11 @@ class ListingCarousel extends React.Component {
 
   nextListing () {
     console.log('next listing props', this.props);
-    console.log('state', this.state.currentListingIndex);
+    console.log('state urrentListingIndex', this.state.currentListingIndex);
     const lastIndex = this.props.details.length - 1;
     const { currentListingIndex } = this.state;
-    const shouldResetIndex = currentListingIndex === lastIndex;
-    const index = shouldResetIndex ? lastIndex : currentListingIndex + 1;
+    const shouldResetIndex = currentListingIndex === lastIndex - 2;
+    const index = shouldResetIndex ? lastIndex - 2 : currentListingIndex + 1;
 
     this.setState({
       currentListingIndex: index

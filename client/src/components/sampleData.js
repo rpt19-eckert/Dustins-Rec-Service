@@ -156,6 +156,28 @@ const sampleDetails = [
     'num_beds': 1,
     'listing_title': 'Ad culpa excepteur.',
     'is_fav': 0
+  },
+  {
+    'listing_id': 10051,
+    'listing_type': 'Private room',
+    'listing_category': 'house',
+    'night_price': 168.474,
+    'avg_review': 3.78572,
+    'num_review': 30,
+    'num_beds': 4,
+    'listing_title': 'Laboris esse sint ea.',
+    'is_fav': 0
+  },
+  {
+    'listing_id': 10052,
+    'listing_type': 'Private room',
+    'listing_category': 'hotel',
+    'night_price': 119.171,
+    'avg_review': 3.15906,
+    'num_review': 5,
+    'num_beds': 1,
+    'listing_title': 'Ad culpa excepteur.',
+    'is_fav': 0
   }
 ];
 const sampleImages2 = ['https://fec-photos.s3-us-west-1.amazonaws.com/coverPics/Cover02Small.jpg', 'https://fec-photos.s3-us-west-1.amazonaws.com/otherPics/randomListingPic46Small.jpg'];

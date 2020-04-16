@@ -28,18 +28,6 @@ class ListingData extends React.Component {
       }
     });
 
-  //   $.ajax({
-  //     url: 'http://localhost:3003/images',
-  //     success: (data) => {
-  //       this.setState({
-  //         images: data
-  //       });
-  //       console.log(data);
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
   }
 
   render() {

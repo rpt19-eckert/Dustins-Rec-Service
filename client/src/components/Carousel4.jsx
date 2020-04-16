@@ -9,7 +9,7 @@ import $ from 'jquery';
 
 
 
-class Carousel extends React.Component {
+class Carousel4 extends React.Component {
   constructor (props) {
     super(props);
 
@@ -101,4 +101,4 @@ class Carousel extends React.Component {
   }
 }
 
-export default Carousel;
+export default Carousel4;

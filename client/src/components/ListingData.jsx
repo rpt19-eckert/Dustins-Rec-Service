@@ -16,7 +16,7 @@ class ListingData extends React.Component {
   componentDidMount() {
 
     $.ajax({
-      url: 'http://localhost:3003/listings',
+      url: 'http://ec2-3-22-118-181.us-east-2.compute.amazonaws.com/listings',
       success: (data) => {
         this.setState({
           listings: data

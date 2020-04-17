@@ -1,37 +1,41 @@
 import React from 'react';
 import $ from 'jquery';
-import ListOfItems from './ListOfItems.jsx';
+import ListingCarousel from './ListingCarousel.jsx';
+import sampleData from './sampleData.js';
 
 
-class Details extends React.Component {
+class ListingData extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listings: []
+      listings: sampleData[1],
+      images: sampleData[0]
     };
   }
 
   componentDidMount() {
+
     $.ajax({
       url: 'http://localhost:3003/listings',
       success: (data) => {
         this.setState({
           listings: data
         });
-        console.log(data);
+        console.log('listing data in ListingData', data);
       },
       error: (err) => {
         console.log('err', err);
       }
     });
+
   }
 
   render() {
     return (
-      <div className="items">
-        <ListOfItems details={this.state.listings} />
+      <div className="listing">
+        <ListingCarousel details={this.state.listings} />
       </div>
     );
   }
 }
-export default Details;
+export default ListingData;

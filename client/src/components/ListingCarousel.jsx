@@ -25,31 +25,11 @@ class ListingCarousel extends React.Component {
   }
 
   previousListing () {
-    console.log('previous listing');
-    // console.log('state', this.state.currentListingIndex);
-    // const lastIndex = this.props.details.length - 1;
-    // const { currentListingIndex } = this.state;
-    // const shouldResetIndex = currentListingIndex === 0;
-    // const index = shouldResetIndex ? 0 : currentListingIndex - 1;
-
-    // this.setState({
-    //   currentListingIndex: index
-    // });
     let container = document.getElementById('listingContainer');
     this.sideScroll(container, 'left', 10, 311, 10);
   }
 
   nextListing () {
-    console.log('next listing');
-    // console.log('state urrentListingIndex', this.state.currentListingIndex);
-    // const lastIndex = this.props.details.length - 1;
-    // const { currentListingIndex } = this.state;
-    // const shouldResetIndex = currentListingIndex === lastIndex - 2;
-    // const index = shouldResetIndex ? lastIndex - 2 : currentListingIndex + 1;
-
-    // this.setState({
-    //   currentListingIndex: index
-    // });
     let container = document.getElementById('listingContainer');
     this.sideScroll(container, 'right', 10, 311, 10);
   }

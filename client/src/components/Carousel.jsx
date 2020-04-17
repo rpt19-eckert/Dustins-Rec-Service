@@ -79,6 +79,7 @@ class Carousel extends React.Component {
 
   addToFavorite () {
     console.log('added to favorite');
+    $('#id').css({'fill': '#FF385C'});
   }
 
   render () {
@@ -96,6 +97,8 @@ class Carousel extends React.Component {
           direction="right"
           clickFunction={ this.nextSlide }
           type="image" />
+
+
       </span>
     );
   }

@@ -11,7 +11,6 @@ class Listing extends React.Component {
   render () {
     return (
       <span>
-        <Carousel imgUrls={this.props.images}/>
         <ListItem detail={this.props.details}/>
       </span>);
   }

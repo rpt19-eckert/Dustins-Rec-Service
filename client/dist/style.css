@@ -23,17 +23,9 @@ div #recommendations {
   padding-top: 25px;
 }
 
-#recommendations span .singleListing {
-  display: inline-block;
-  margin: 2px 2px 2px 2px;
-  border: 2px;
-  top: -60px;
-  position: relative !important;
-}
-
 #recommendations span .carousel {
   display: inline-block;
-  margin: -30px -70px 10px 2px;
+  margin: -30px -70px 10px -25px;
   position: relative !important;
 }
 
@@ -46,7 +38,6 @@ div #recommendations {
     overflow-x: hidden;
     overflow-y: hidden;
   text-overflow: ellipsis;
-  left: 27px;
 }
 
 #recommendations .images {
@@ -154,7 +145,7 @@ div #recommendations {
 }
 
 #recommendations .slide-arrow.right.listing {
-  top: -14.1rem;
+  top: 4rem;
   right: -61rem;
 }
 
@@ -211,6 +202,7 @@ div #recommendations {
 ._1tsvpuw {
   transform: translateY(0.5px) !important;
 }
+
 #recommendations button {
   display: none;
 }
@@ -240,3 +232,36 @@ div #recommendations {
   border-image: initial;
 }
 
+#recommendations img {
+  border-radius: 6px;
+  height: 200px;
+  width: 300px;
+}
+
+#recommendations button {
+  display: none;
+}
+
+#recommendations #listingContainer {
+  border: 1px;
+  position: absolute;
+  height: 350px;
+  width: 948px;
+  top: 90px;
+  left: 35px;
+  overflow: hidden;
+}
+
+
+#recommendations #listingContent {
+  width: 948px;
+  white-space: nowrap;
+}
+
+
+#recommendations span .singleListing {
+  display: inline-block;
+  margin: 2px 3px 2px 3px;
+  border: 3px;
+  position: relative !important;
+}

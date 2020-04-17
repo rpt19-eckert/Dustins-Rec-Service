@@ -1,11 +1,13 @@
 import React from 'react';
+
 const style = {
   'height': '10px',
   'width': '10px',
   'display': 'block',
   'fill': 'currentcolor'
 };
-const RightArrow = ({ direction, clickFunction, glyph, type }) => (
+
+const RightArrow = ({ direction, clickFunction, type }) => (
   <div
     className={ `slide-arrow ${direction} ${type}` }
     onClick={ clickFunction }>

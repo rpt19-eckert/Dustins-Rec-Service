@@ -1,14 +1,19 @@
 import React from 'react';
 
-const ImageSlide = ({ url }) => {
-  let imgUrl = url.image_url;
-  console.log('imageslide', url);
-  return (
-    <span className="image">
-      <img src={imgUrl}></img>
-    </span>
 
-  );
-};
+class ImageSlide extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <span className="image">
+        <img src={this.props.url}></img>
+      </span>
+
+    );
+  }
+}
 
 export default ImageSlide;

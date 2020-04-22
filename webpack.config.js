@@ -5,6 +5,7 @@ var BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
   mode: 'production',
+  devtool: '',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: 'bundle.js',
@@ -31,5 +32,16 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8
     })
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 };

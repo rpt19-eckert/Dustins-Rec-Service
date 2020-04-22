@@ -51,7 +51,8 @@
     "superagent": "^5.2.2",
     "supertest": "^4.0.2",
     "utf-8-validate": "^5.0.2",
-    "webpack": "^2.2.1"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "jest": {
     "moduleFileExtensions": [

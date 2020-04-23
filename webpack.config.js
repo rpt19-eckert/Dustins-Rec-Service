@@ -1,7 +1,6 @@
 var path = require('path');
 var SRC_DIR = path.join(__dirname, '/client/src');
 var DIST_DIR = path.join(__dirname, '/client/dist');
-var BrotliPlugin = require('brotli-webpack-plugin');
 const brotliPlugin = require('brotli-gzip-webpack-plugin');
 
 
@@ -27,14 +26,6 @@ module.exports = {
       }
     ]
   },
-  // plugins: [
-  //   new BrotliPlugin({
-  //     asset: '[path].br[query]',
-  //     test: /\.(js|css|html|svg)$/,
-  //     threshold: 10240,
-  //     minRatio: 0.8
-  //   })
-  // ]
   plugins: [
     new brotliPlugin({
       asset: '[path].br[query]',

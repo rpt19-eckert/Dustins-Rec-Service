@@ -14,16 +14,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/bundle.js', (req, res) => {
+app.get('/bundle.js', (req, res) => {
   if (req.header('Accept-Encoding').includes('br')) {
     res.set('Content-Encoding', 'br');
     res.set('Content-Type', 'application/javascript; charset=UTF-8');
     console.log('sent compressed file');
-    return res.sendFile(path.join(__dirname, '../client/dist', 'bundle.js.br'));
+    return res.sendFile(path.join(__dirname, '../client/dist', '/bundle.js.br'));
   } else if (req.header('Accept-Encoding').includes('gz')) {
     res.set('Content-Encoding', 'gzip');
     res.set('Content-Type', 'application/javascript; charset=UTF-8');
-    return res.sendFile(path.join(__dirname, '../client/dist', 'bundle.js.gz'));
+    return res.sendFile(path.join(__dirname, '../client/dist', '/bundle.js.gz'));
   }
 });
 

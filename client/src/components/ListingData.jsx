@@ -1,5 +1,5 @@
-import React from 'react';
-import $ from 'jquery';
+//import React from 'react';
+//import $ from 'jquery';
 import ListingCarousel from './ListingCarousel.jsx';
 import sampleData from './sampleData.js';
 

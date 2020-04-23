@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 
 const styleButton = {
   'padding': '0px',

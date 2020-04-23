@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+//import React from 'react';
+//import ReactDOM from 'react-dom';
 import LeftArrowListing from './LeftArrowListing.jsx';
 import RightArrowListing from './RightArrowListing.jsx';
 import ImageSlide from './ImageSlide.jsx';

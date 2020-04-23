@@ -5,7 +5,7 @@ import LeftArrow from './LeftArrow.jsx';
 import ImageSlide from './ImageSlide.jsx';
 import Favorite from './Favorite.jsx';
 import sampleData from './sampleData.js';
-import $ from 'jquery';
+//import $ from 'jquery';
 
 
 

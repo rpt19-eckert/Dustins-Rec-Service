@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+//import React from 'react';
+//import ReactDOM from 'react-dom';
 import RightArrow from './RightArrow.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import ImageSlide from './ImageSlide.jsx';
@@ -26,12 +26,12 @@ class Carousel extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.listingId !== this.props.listingId) {
       const id = this.props.listingId.listing_id;
-      console.log('listingid', this.props.listingId.listing_id);
+      //console.log('listingid', this.props.listingId.listing_id);
       $.ajax({
         url: 'http://ec2-54-183-138-229.us-west-1.compute.amazonaws.com:3002/listing-info',
         data: {listingId: id},
         success: (data) => {
-          console.log('from jason', data);
+          //console.log('from jason', data);
           let thisListingImages = {};
           const imageValues = Object.values(data[0]);
           thisListingImages[imageValues[1]] = [];
@@ -40,7 +40,7 @@ class Carousel extends React.Component {
               thisListingImages[imageValues[1]].push(imageValues[i]);
             }
           }
-          console.log(thisListingImages);
+          //console.log(thisListingImages);
           this.setState({
             imgUrls: thisListingImages[id]
           });
@@ -53,12 +53,12 @@ class Carousel extends React.Component {
   }
 
   previousSlide () {
-    console.log('previous slide props', this.props);
-    console.log('state current image index', this.state.currentImageIndex);
+    // console.log('previous slide props', this.props);
+    // console.log('state current image index', this.state.currentImageIndex);
     const lastIndex = this.state.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === 0;
-    const index = shouldResetIndex ? 0 : currentImageIndex - 1;
+    const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
 
     this.setState({
       currentImageIndex: index
@@ -66,12 +66,12 @@ class Carousel extends React.Component {
   }
 
   nextSlide () {
-    console.log('next slide props', this.props);
-    console.log('state current image index', this.state.currentImageIndex);
+    // console.log('next slide props', this.props);
+    // console.log('state current image index', this.state.currentImageIndex);
     const lastIndex = this.state.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
-    const index = shouldResetIndex ? lastIndex : currentImageIndex + 1;
+    const index = shouldResetIndex ? 0 : currentImageIndex + 1;
     this.setState({
       currentImageIndex: index
     });

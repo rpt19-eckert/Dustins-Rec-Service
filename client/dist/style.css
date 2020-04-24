@@ -38,6 +38,7 @@ div #recommendations {
     overflow-x: hidden;
     overflow-y: hidden;
   text-overflow: ellipsis;
+  cursor:pointer;
 }
 
 #recommendations .images {
@@ -139,14 +140,16 @@ div #recommendations {
 	right: 2.5rem;
 }
 
-#recommendations .slide-arrow.left.listing {
-  left: 0.4rem;
-  top: 8rem;
+#recommendations #leftScroll {
+  left: 0.9rem;
+  top: 13.2rem;
+  position: absolute;
 }
 
-#recommendations .slide-arrow.right.listing {
-  top: 4rem;
-  right: -61rem;
+#recommendations #rightScroll {
+  top: 13.4rem;
+  left: 61.5rem;
+  position: absolute;
 }
 
 #recommendations .favorite {

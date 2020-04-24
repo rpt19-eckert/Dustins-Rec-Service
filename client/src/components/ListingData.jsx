@@ -1,6 +1,6 @@
 //import React from 'react';
-//import $ from 'jquery';
-import ListingCarousel from './ListingCarousel.jsx';
+import $ from 'jquery';
+import ListingSlider from './ListingSlider.jsx';
 import sampleData from './sampleData.js';
 
 
@@ -21,7 +21,7 @@ class ListingData extends React.Component {
         this.setState({
           listings: data
         });
-        console.log('listing data in ListingData', data);
+        //console.log('listing data in ListingData', data);
       },
       error: (err) => {
         console.log('err', err);
@@ -33,7 +33,7 @@ class ListingData extends React.Component {
   render() {
     return (
       <div className="listing">
-        <ListingCarousel details={this.state.listings} />
+        <ListingSlider details={this.state.listings} />
       </div>
     );
   }

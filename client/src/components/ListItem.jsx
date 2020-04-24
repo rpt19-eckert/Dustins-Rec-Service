@@ -3,10 +3,9 @@
 const ListItem = (props) => (
 
   <div className="item">
-    {console.log('props in list item:', props)}
     <div className="line1"><span className="greyFont">{props.detail.listing_type}
       <span> · </span>
-      {props.detail.num_beds}&nbsp;beds
+      {props.detail.num_beds === 1 ? props.detail.num_beds + ' bed' : props.detail.num_beds + ' beds'}
     </span>
     <span className="review">
       <span className="icon">

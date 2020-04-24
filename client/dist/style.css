@@ -269,3 +269,28 @@ div #recommendations {
   border: 3px;
   position: relative !important;
 }
+
+#recommendations .dot {
+  height: 5px;
+  width: 5px;
+  margin: 0 3px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 1s ease
+}
+
+#recommendations .dotsContainer {
+  border: 1px;
+  position: absolute;
+  width: 55px;
+  top: 204px;
+  left: 160px;
+  overflow: hidden;
+}
+
+#recommendations .dotsContent {
+  width: 55px;
+  white-space: nowrap;
+}
+

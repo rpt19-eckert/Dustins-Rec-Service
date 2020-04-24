@@ -5,6 +5,7 @@ import LeftArrow from './LeftArrow.jsx';
 import ImageSlide from './ImageSlide.jsx';
 import Favorite from './Favorite.jsx';
 import sampleData from './sampleData.js';
+import DotsContainer from './DotsContainer.jsx';
 //import $ from 'jquery';
 
 
@@ -98,6 +99,7 @@ class Carousel extends React.Component {
           clickFunction={ this.nextSlide }
           type="image" />
 
+        <DotsContainer listingId={this.props.listingId.listing_id} index={this.state.currentImageIndex} imgUrls={this.state.imgUrls} />
 
       </span>
     );

@@ -5,6 +5,7 @@ import LeftArrow from './LeftArrow.jsx';
 import ImageSlide from './ImageSlide.jsx';
 import Favorite from './Favorite.jsx';
 import sampleData from './sampleData.js';
+import DotsContainer from './DotsContainer.jsx';
 //import $ from 'jquery';
 
 
@@ -58,7 +59,7 @@ class Carousel extends React.Component {
     const lastIndex = this.state.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === 0;
-    const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
+    const index = shouldResetIndex ? 0 : currentImageIndex - 1;
 
     this.setState({
       currentImageIndex: index
@@ -71,7 +72,7 @@ class Carousel extends React.Component {
     const lastIndex = this.state.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
-    const index = shouldResetIndex ? 0 : currentImageIndex + 1;
+    const index = shouldResetIndex ? lastIndex : currentImageIndex + 1;
     this.setState({
       currentImageIndex: index
     });
@@ -98,6 +99,7 @@ class Carousel extends React.Component {
           clickFunction={ this.nextSlide }
           type="image" />
 
+        <DotsContainer listingId={this.props.listingId.listing_id} index={this.state.currentImageIndex} imgUrls={this.state.imgUrls} />
 
       </span>
     );

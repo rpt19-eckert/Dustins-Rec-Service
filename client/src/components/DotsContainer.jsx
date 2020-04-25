@@ -25,13 +25,13 @@ class DotsContainer extends React.Component {
   previousIndex () {
     // console.log('previous index');
     let container = document.getElementById('dotsContainer' + this.props.listingId);
-    this.sideScroll(container, 'left', 20, 6, 1);
+    this.sideScroll(container, 'left', 20, 11, 1);
   }
 
   nextIndex () {
     // console.log('next index');
     let container = document.getElementById('dotsContainer' + this.props.listingId);
-    this.sideScroll(container, 'right', 20, 12, 1);
+    this.sideScroll(container, 'right', 20, 11, 1);
   }
 
   sideScroll (element, direction, speed, distance, step) {

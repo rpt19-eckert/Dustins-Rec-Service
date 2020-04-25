@@ -274,10 +274,14 @@ div #recommendations {
   height: 5px;
   width: 5px;
   margin: 0 3px;
-  background-color: white;
+  background-color: #adadad;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 1s ease
+}
+
+#recommendations .dot.active {
+  background-color: white;
 }
 
 #recommendations .dotsContainer {

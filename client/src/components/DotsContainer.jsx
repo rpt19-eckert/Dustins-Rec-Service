@@ -63,6 +63,30 @@ class DotsContainer extends React.Component {
                       <Dot index={this.state.currentIndex}/>
                     </span>
                   );
+                } else if (Math.abs(this.props.index - index) === 1) {
+                  return (
+                    <span key={index} className='dot nearActiveOne'>
+                      <Dot index={this.state.currentIndex}/>
+                    </span>
+                  );
+                } else if (Math.abs(this.props.index - index) === 2) {
+                  return (
+                    <span key={index} className='dot nearActiveTwo'>
+                      <Dot index={this.state.currentIndex}/>
+                    </span>
+                  );
+                } else if (Math.abs(this.props.index - index) === 3) {
+                  return (
+                    <span key={index} className='dot nearActiveThree'>
+                      <Dot index={this.state.currentIndex}/>
+                    </span>
+                  );
+                } else if (Math.abs(this.props.index - index) === 4) {
+                  return (
+                    <span key={index} className='dot nearActiveFour'>
+                      <Dot index={this.state.currentIndex}/>
+                    </span>
+                  );
                 } else {
                   return (
                     <span key={index} className='dot'>

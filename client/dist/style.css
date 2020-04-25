@@ -282,6 +282,32 @@ div #recommendations {
 
 #recommendations .dot.active {
   background-color: white;
+  height: 5.9px;
+  width: 5.9px;
+}
+
+#recommendations .dot.nearActiveOne {
+  background-color: #adadad;
+  height: 5.2px;
+  width: 5.2px;
+}
+
+#recommendations .dot.nearActiveTwo {
+  background-color: #adadad;
+  height: 4.4px;
+  width: 4.4px;
+}
+
+#recommendations .dot.nearActiveThree {
+  background-color: #adadad;
+  height: 3.6px;
+  width: 3.6px;
+}
+
+#recommendations .dot.nearActiveFour {
+  background-color: #adadad;
+  height: 2.9px;
+  width: 2.9px;
 }
 
 #recommendations .dotsContainer {

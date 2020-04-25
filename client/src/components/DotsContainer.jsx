@@ -17,7 +17,7 @@ class DotsContainer extends React.Component {
     // console.log('props updated');
     if (prevProps.index < this.props.index && this.props.index > 2) {
       this.nextIndex();
-    } else if (prevProps.index > this.props.index && this.props.index < this.props.imgUrls.length - 2) {
+    } else if (prevProps.index > this.props.index && this.props.index < this.props.imgUrls.length - 3) {
       this.previousIndex();
     }
   }
@@ -25,13 +25,13 @@ class DotsContainer extends React.Component {
   previousIndex () {
     // console.log('previous index');
     let container = document.getElementById('dotsContainer' + this.props.listingId);
-    this.sideScroll(container, 'left', 20, 11, 1);
+    this.sideScroll(container, 'left', 20, 5.6, 1);
   }
 
   nextIndex () {
     // console.log('next index');
     let container = document.getElementById('dotsContainer' + this.props.listingId);
-    this.sideScroll(container, 'right', 20, 11, 1);
+    this.sideScroll(container, 'right', 20, 11.2, 1);
   }
 
   sideScroll (element, direction, speed, distance, step) {

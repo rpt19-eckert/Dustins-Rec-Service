@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS recommendations;
 
 CREATE DATABASE recommendations;

@@ -4,8 +4,8 @@ const mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'admin',
-  password : '8989',
+  user     : 'root',
+  password : '',
   database : 'recommendations'
 });
 
@@ -15,7 +15,7 @@ connection.connect(function(err) {
 });
 
 const listing_type_options = ['Entire place', 'Private room', 'Hotel room', 'Shared room'];
-const listing_category_options = ['apartment','house', 'hotel', 'cabin', 'bnb'];
+const listing_category_options = ['apartment', 'house', 'hotel', 'cabin', 'bnb'];
 
 //seedDB for listings table
 for (let i = 0; i < 100; i ++) {

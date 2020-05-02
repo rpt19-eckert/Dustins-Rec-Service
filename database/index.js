@@ -40,7 +40,18 @@ var selectImages = function(listing, callback) {
 
   let sql = `SELECT * FROM listing_images WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
   connection.query(sql, function(err, results, fields) {
-    if(err) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+var insertListing = function(listing, callback) {
+  let sql = `INSERT INTO listings VALUES ("${listing.id}", "${listing.type}", "${listing.category}", "${listing.price}", "${listing.avgReview}", "${listing.numReview}", "${listing.numBeds}", "${listing.title}", "${listing.isFav}")`;
+  connection.query(sql, function(err, results) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, results);
@@ -50,3 +61,4 @@ var selectImages = function(listing, callback) {
 
 module.exports.selectAll = selectAll;
 module.exports.selectImages = selectImages;
+module.exports.insertListing = insertListing;

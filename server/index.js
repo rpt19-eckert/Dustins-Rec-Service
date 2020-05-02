@@ -42,6 +42,18 @@ app.get('/listings', function (req, res) {
 });
 
 
+app.post('/listings', function (req, res) {
+  //expects req.body to be an object with keys that include id, type, category, price, avgReview, numReview, numBeds, title, isFav
+  db.insertListing(req.body, function(err) {
+    if (err) {
+      res.sendStatus(501);
+    } else {
+      res.sendStatus(201);
+    }
+  });
+});
+
+
 app.get('/images', urlencodedParser, function (req, res) {
   console.log('server /images');
   db.selectImages(req.body, function(err, data) {

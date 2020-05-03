@@ -2,8 +2,8 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'admin',
-  password : '8989',
+  user     : 'root',
+  password : '',
   database : 'recommendations'
 });
 
@@ -49,7 +49,7 @@ var selectImages = function(listing, callback) {
 };
 
 var insertListing = function(listing, callback) {
-  let sql = `INSERT INTO listings VALUES ("${listing.id}", "${listing.type}", "${listing.category}", "${listing.price}", "${listing.avgReview}", "${listing.numReview}", "${listing.numBeds}", "${listing.title}", "${listing.isFav}")`;
+  let sql = `INSERT INTO listings ( listing_id, listing_type, listing_category, night_price, avg_review, num_review, num_beds, listing_title, is_fav ) VALUES (${listing.id}, "${listing.type}", "${listing.category}", ${listing.price}, ${listing.avgReview}, ${listing.numReview}, ${listing.numBeds}, "${listing.title}", ${listing.isFav})`;
   connection.query(sql, function(err, results) {
     if (err) {
       callback(err, null);

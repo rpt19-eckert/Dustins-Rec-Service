@@ -44,12 +44,11 @@ app.get('/listings', function (req, res) {
 
 app.post('/listings', function (req, res) {
   //expects req.body to be an object with keys that include id, type, category, price, avgReview, numReview, numBeds, title, isFav
-  console.log('req.body', req.body);
 
   db.insertListing(req.body, function(err, results) {
     if (err) {
       console.log('err', err);
-      res.sendStatus(501);
+      res.sendStatus(500);
     } else {
       console.log('results', results);
       res.sendStatus(201);
@@ -58,21 +57,46 @@ app.post('/listings', function (req, res) {
   });
 });
 
+app.put('/listings', function(req, res) {
+  let queryParams = [];
+  for (let each in req.body) {
+    queryParams.push(req.body[each]);
+  }
+  db.updateListing(queryParams, (err, results) => {
+    if (err) {
+      console.log('error', err);
+      res.sendStatus(500);
+    } else {
+      console.log('res', results);
+      res.sendStatus(202);
+    }
+    res.end();
+  });
+
+});
+
+app.delete('/listings', function(req, res) {
+  db.deleteListing([req.query.id], function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(202);
+    }
+    res.end();
+  });
+});
 
 app.get('/images', function (req, res) {
-  console.log('server /images');
   db.selectImages(req.body, function(err, data) {
     if (err) {
       res.sendStatus(500);
     } else {
       res.json(data);
-      console.log(data);
     }
   });
 });
 
 app.get('/:id', (req, res) => {
-  console.log('send file');
   res.sendFile(path.join(__dirname, '../client/dist', '/index.html'));
 });
 

@@ -35,8 +35,6 @@ app.get('/listings', function (req, res) {
       res.sendStatus(500);
     } else {
       res.json(data);
-      console.log(data);
-
     }
   });
 });
@@ -47,10 +45,8 @@ app.post('/listings', function (req, res) {
 
   db.insertListing(req.body, function(err, results) {
     if (err) {
-      console.log('err', err);
       res.sendStatus(500);
     } else {
-      console.log('results', results);
       res.sendStatus(201);
     }
     res.end();
@@ -62,6 +58,7 @@ app.put('/listings', function(req, res) {
   for (let each in req.body) {
     queryParams.push(req.body[each]);
   }
+  console.log('req.body', req.body);
   db.updateListing(queryParams, (err, results) => {
     if (err) {
       console.log('error', err);

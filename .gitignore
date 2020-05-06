@@ -24,3 +24,7 @@ coverage
 build/
 #dist/
 
+#SeedDataFiles
+database/imageSeedData.csv;
+database/listingSeedData.csv;
+

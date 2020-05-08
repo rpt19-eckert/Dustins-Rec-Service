@@ -34,6 +34,7 @@ app.get('/listings', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
+      console.log('get listings', data);
       res.json(data);
     }
   });
@@ -72,7 +73,7 @@ app.put('/listings', function(req, res) {
 
 });
 
-app.delete('/listings', function(req, res) {
+app.delete('/listings:id', function(req, res) {
   db.deleteListing([req.query.id], function(err, data) {
     if (err) {
       res.sendStatus(500);
@@ -88,6 +89,7 @@ app.get('/images', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
+      console.log('get images', data);
       res.json(data);
     }
   });

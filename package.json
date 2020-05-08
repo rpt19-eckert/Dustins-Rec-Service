@@ -2,7 +2,7 @@
   "name": "airbnb-recommendations",
   "version": "1.0.0",
   "description": "P3-recommendations",
-  "author": "Youzhu Shi",
+  "author": "Youzhu Shi / Dustin Ancalade",
   "license": "",
   "engines": {
     "node": ">=6.13.0"

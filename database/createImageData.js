@@ -2,7 +2,7 @@ const fs = require('fs');
 const file = fs.createWriteStream('./imageSeedData.csv');
 const loremIpsum = require('lorem-ipsum').loremIpsum;
 
-const imageColumnNames = 'listing_id, image_url_1, image_url_2, image_url_3, image_url_4, image_url_5';
+const imageColumnNames = 'listing_id, image_url_1, image_url_2, image_url_3, image_url_4, image_url_5, image_url_6';
 
 file.write(imageColumnNames);
 

@@ -9,7 +9,7 @@ const listingColumnNames = 'listing_id, listing_type, listing_category, night_pr
 file.write(listingColumnNames);
 
 // seedDB for listings table
-for (let i = 0; i < 100; i ++) {
+for (let i = 0; i < 1e7; i++) {
   let listingId = i + 10001;
   let listingType = listingTypeOptions[Math.floor(Math.random() * 4)];
   let listingCategory = listingCategoryOptions[Math.floor(Math.random() * 5)];

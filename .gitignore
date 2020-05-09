@@ -24,3 +24,6 @@ coverage
 build/
 #dist/
 
+#postgres csv seeds
+imageSeedData.csv
+listingSeedData.csv

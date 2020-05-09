@@ -25,6 +25,6 @@ build/
 #dist/
 
 #SeedDataFiles
-database/imageSeedData.csv
-database/listingSeedData.csv
+imageSeedData.csv
+listingSeedData.csv
 

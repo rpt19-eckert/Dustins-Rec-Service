@@ -10,7 +10,7 @@ file.write(imageColumnNames);
 for (let i = 0; i < 1e7; i ++) {
   let listingId = 10001 + i;
   let imageUrls = [];
-  for (let j = 0; j < 5; j++) {
+  for (let j = 0; j < 6; j++) {
     let imageUrl = `https://picsum.photos/300/200?random=${listingId}${j}`;
     imageUrls.push(imageUrl);
 

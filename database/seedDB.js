@@ -21,7 +21,7 @@ Listing.sync({force: true});
 
   class Image extends Model {}
   Image.init({
-    listing_id: { type: DataTypes.INTEGER },
+    listing_id: { type: DataTypes.INTEGER, unique: true, primaryKey: true, allowNull: false},
     image_url_1: { type: DataTypes.STRING, allowNull: false},
     image_url_2: { type: DataTypes.STRING, allowNull: false},
     image_url_3: { type: DataTypes.STRING, allowNull: false},

@@ -1,0 +1,1 @@
+COPY images (listing_id, image_url_1, image_url_2, image_url_3, image_url_4, image_url_5, image_url_6) FROM '/Users/dustinancalade/Desktop/coding/rpt19/SDC/Dustins-Rec-Service/imageSeedData.csv' DELIMITER ',' CSV HEADER;

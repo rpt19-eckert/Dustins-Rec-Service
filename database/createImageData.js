@@ -15,7 +15,7 @@ for (let i = 0; i < 1e7; i ++) {
     imageUrls.push(imageUrl);
 
   }
-  file.write(`\n ${listingId}, ${imageUrls[0]}, ${imageUrls[1]}, ${imageUrls[2]}, ${imageUrls[3]}, ${imageUrls[4]}`);
+  file.write(`\n ${listingId}, ${imageUrls[0]}, ${imageUrls[1]}, ${imageUrls[2]}, ${imageUrls[3]}, ${imageUrls[4]}, ${imageUrls[5]}`);
 }
 
 

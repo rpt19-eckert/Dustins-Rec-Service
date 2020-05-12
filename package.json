@@ -11,7 +11,9 @@
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --watch",
     "seed": "node database/seedDB.js",
-    "test": "jest --runInBand --detectOpenHandles"
+    "test": "jest --runInBand --detectOpenHandles",
+    "createJsonSeed": "node database/createJsonSeed",
+    "seedCouch": "curl -X POST 'http://couchdb:5984/sdc' 'Content-Type: application/json' -d {name:'one'}"
   },
   "dependencies": {
     "babel": "^6.23.0",

@@ -27,3 +27,6 @@ build/
 #postgres csv seeds
 imageSeedData.csv
 listingSeedData.csv
+
+#couchdb seed
+database/listing.json

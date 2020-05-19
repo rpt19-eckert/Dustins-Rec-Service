@@ -12,8 +12,12 @@
     "start": "nodemon server/index.js --watch",
     "seed": "node database/seedDB.js",
     "test": "jest --runInBand --detectOpenHandles",
-    "createJsonSeed": "node database/createJsonSeed",
-    "seedCouch": "curl -X POST 'http://couchdb:5984/sdc' 'Content-Type: application/json' -d {name:'one'}"
+    "seedCouchListingCSV":
+     "cat ./listingSeedData.csv | couchimport --url http://admin:admin@127.0.0.1:5984 --db sdc --delimiter ', '",
+    "seedCouchImageCSV":
+     "cat ./imageSeedData.csv | couchimport --url http://admin:admin@127.0.0.1:5984 --db sdc2 --delimiter ', '",
+    "createJsonSeed": "node database/createJsonSeed  --max-old-space-size=5120",
+    "seedCouchListing": "cat ./database/listing.json | couchimport  --url http://admin:admin@127.0.0.1:5984 --database sdc --type json --jsonpath 'docs.*' --delimiter ', '"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -38,6 +42,7 @@
     "brotli-webpack-plugin": "^1.1.0",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",
+    "couchimport": "^1.4.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "grunt": "~0.4.5",
     "grunt-contrib-jshint": "~0.10.0",

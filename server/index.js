@@ -34,7 +34,6 @@ app.get('/listings', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      // console.log('get listings', data.rows);
       res.json(data.rows);
     }
   });
@@ -49,7 +48,6 @@ app.post('/listings', function (req, res) {
       console.log('err', err);
       res.sendStatus(500);
     } else {
-      console.log('results:', results);
       res.sendStatus(201);
     }
     res.end();

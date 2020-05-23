@@ -1,13 +1,16 @@
-const mysql = require('mysql');
+const {Pool} = require('pg');
 
-const connection = mysql.createConnection({
+
+const pool = new Pool({
   host: 'localhost',
-  user: 'root',
+  user: '',
   password: '',
-  database: 'recommendations'
+  database: 'dustinancalade',
 });
 
-connection.connect(function(err) {
+
+
+pool.connect(function(err) {
   if (err) {
     throw err;
   }
@@ -52,7 +55,7 @@ const selectImages = function(listing, callback) {
 
 const insertListing = function(listing, callback) {
   let sql = `INSERT INTO listings ( listing_id, listing_type, listing_category, night_price, avg_review, num_review, num_beds, listing_title, is_fav ) VALUES (${listing.id}, "${listing.type}", "${listing.category}", ${listing.price}, ${listing.avgReview}, ${listing.numReview}, ${listing.numBeds}, "${listing.title}", ${listing.isFav})`;
-  connection.query(sql, function(err, results, fields) {
+  pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -63,7 +66,7 @@ const insertListing = function(listing, callback) {
 
 const updateListing = function(params, callback) {
   let sql = `UPDATE listings SET listing_id = ?, listing_type = ?, listing_category = ?, night_price = ?, avg_review = ?, num_review = ?, num_beds = ?, listing_title = ?, is_fav = ? WHERE listing_id = ${params[0]}`;
-  connection.query(sql, params, function (err, results) {
+  pool.query(sql, params, function (err, results) {
     if (err) {
       callback(err, null);
     } else {
@@ -74,7 +77,7 @@ const updateListing = function(params, callback) {
 
 const deleteListing = function(id, callback) {
   let sql = 'DELETE FROM listings WHERE listing_id=?';
-  connection.query(sql, id, function (err, results) {
+  pool.query(sql, id, function (err, results) {
     if (err) {
       callback(err, null);
     } else {

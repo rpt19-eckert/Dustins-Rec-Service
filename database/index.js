@@ -90,4 +90,4 @@ module.exports.insertListing = insertListing;
 module.exports.updateListing = updateListing;
 module.exports.deleteListing = deleteListing;
 
-
+// update listings SET listing_id=10006,  is_Fav=0, listing_type='Private room' where listing_id=10006

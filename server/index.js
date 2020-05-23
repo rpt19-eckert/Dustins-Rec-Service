@@ -34,9 +34,7 @@ app.get('/listings', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data);
-      console.log(data);
-
+      res.json(data.rows);
     }
   });
 });
@@ -50,7 +48,6 @@ app.post('/listings', function (req, res) {
       console.log('err', err);
       res.sendStatus(500);
     } else {
-      console.log('results', results);
       res.sendStatus(201);
     }
     res.end();
@@ -64,10 +61,8 @@ app.put('/listings', function(req, res) {
   }
   db.updateListing(queryParams, (err, results) => {
     if (err) {
-      console.log('error', err);
       res.sendStatus(500);
     } else {
-      console.log('res', results);
       res.sendStatus(202);
     }
     res.end();
@@ -89,9 +84,11 @@ app.delete('/listings', function(req, res) {
 app.get('/images', function (req, res) {
   db.selectImages(req.body, function(err, data) {
     if (err) {
+      console.log('err', err)
       res.sendStatus(500);
     } else {
-      res.json(data);
+      const images = [data.rows[0].image_url_1, data.rows[0].image_url_2, data.rows[0].image_url_3, data.rows[0].image_url_4, data.rows[0].image_url_5, data.rows[0].image_url_6];
+      res.json(images);
     }
   });
 });

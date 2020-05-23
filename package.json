@@ -2,7 +2,7 @@
   "name": "airbnb-recommendations",
   "version": "1.0.0",
   "description": "P3-recommendations",
-  "author": "Youzhu Shi",
+  "author": "Youzhu Shi / Dustin Ancalade",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
@@ -10,7 +10,9 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --watch",
-    "seed": "node database/seedDB.js",
+    "schema": "node database/seedDB.js",
+    "createListingSeed": "node --max-old-space-size=4096 database/createListingData",
+    "createImageSeed": "node --max-old-space-size=4096 database/createImageData",
     "test": "jest --runInBand --detectOpenHandles"
   },
   "dependencies": {
@@ -18,7 +20,10 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.0",
     "jquery": "^3.1.1",
-    "mysql": "^2.18.1"
+    "pg": "^8.0.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.7",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

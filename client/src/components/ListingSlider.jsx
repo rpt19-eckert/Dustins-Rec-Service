@@ -51,6 +51,7 @@ class ListingSlider extends React.Component {
   }
 
   render () {
+    console.log('this.props.details', this.props.details);
     return (
       <div>
         { this.state.currentIndex !== 0 ?

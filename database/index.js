@@ -1,13 +1,16 @@
-const mysql = require('mysql');
+const {Pool} = require('pg');
 
-const connection = mysql.createConnection({
+
+const pool = new Pool({
   host: 'localhost',
-  user: 'root',
+  user: '',
   password: '',
-  database: 'recommendations'
+  database: 'dustinancalade',
 });
 
-connection.connect(function(err) {
+
+
+pool.connect(function(err) {
   if (err) {
     throw err;
   }
@@ -15,15 +18,15 @@ connection.connect(function(err) {
 });
 
 const selectAll = function(listing, callback) {
-  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing4 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing5 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
   let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  connection.query(sql, function(err, results, fields) {
+  pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -33,15 +36,15 @@ const selectAll = function(listing, callback) {
 };
 
 const selectImages = function(listing, callback) {
-  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing4 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing5 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
-  let sql = `SELECT * FROM listing_images WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  connection.query(sql, function(err, results, fields) {
+  let sql = `SELECT * FROM images WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
+  pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -51,8 +54,9 @@ const selectImages = function(listing, callback) {
 };
 
 const insertListing = function(listing, callback) {
-  let sql = `INSERT INTO listings ( listing_id, listing_type, listing_category, night_price, avg_review, num_review, num_beds, listing_title, is_fav ) VALUES (${listing.id}, "${listing.type}", "${listing.category}", ${listing.price}, ${listing.avgReview}, ${listing.numReview}, ${listing.numBeds}, "${listing.title}", ${listing.isFav})`;
-  connection.query(sql, function(err, results, fields) {
+
+  let sql = `INSERT INTO listings VALUES (${listing.id}, '${listing.type}', '${listing.category}', ${listing.price}, ${listing.avgReview}, ${listing.numReview}, ${listing.numBeds}, '${listing.title}', ${listing.isFav})`;
+  pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -62,8 +66,8 @@ const insertListing = function(listing, callback) {
 };
 
 const updateListing = function(params, callback) {
-  let sql = `UPDATE listings SET listing_id = ?, listing_type = ?, listing_category = ?, night_price = ?, avg_review = ?, num_review = ?, num_beds = ?, listing_title = ?, is_fav = ? WHERE listing_id = ${params[0]}`;
-  connection.query(sql, params, function (err, results) {
+  let sql = `UPDATE listings SET listing_id = ${params[0]}, listing_type = '${params[1]}', listing_category = '${params[2]}', night_price = ${params[3]}, avg_review = ${params[4]}, num_review = ${params[5]}, num_beds = ${params[6]}, listing_title = '${params[7]}', is_fav = ${params[8]} WHERE listing_id = ${params[0]}`;
+  pool.query(sql, function (err, results) {
     if (err) {
       callback(err, null);
     } else {
@@ -73,9 +77,10 @@ const updateListing = function(params, callback) {
 };
 
 const deleteListing = function(id, callback) {
-  let sql = 'DELETE FROM listings WHERE listing_id=?';
-  connection.query(sql, id, function (err, results) {
+  let sql = `DELETE FROM listings WHERE listing_id=${id}`;
+  pool.query(sql, function (err, results) {
     if (err) {
+      console.log('err', err);
       callback(err, null);
     } else {
       callback(null, results);
@@ -90,4 +95,4 @@ module.exports.insertListing = insertListing;
 module.exports.updateListing = updateListing;
 module.exports.deleteListing = deleteListing;
 
-// update listings SET listing_id=10006,  is_Fav=0, listing_type='Private room' where listing_id=10006
+

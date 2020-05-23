@@ -16,12 +16,14 @@ class ListingData extends React.Component {
   componentDidMount() {
 
     $.ajax({
-      url: 'http://ec2-3-22-118-181.us-east-2.compute.amazonaws.com/listings',
+      url: '/listings',
       success: (data) => {
         this.setState({
           listings: data
+
+        }, () => {
+          // console.log('new state', this.state);
         });
-        //console.log('listing data in ListingData', data);
       },
       error: (err) => {
         console.log('err', err);

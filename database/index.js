@@ -54,7 +54,8 @@ const selectImages = function(listing, callback) {
 };
 
 const insertListing = function(listing, callback) {
-  let sql = `INSERT INTO listings ( listing_id, listing_type, listing_category, night_price, avg_review, num_review, num_beds, listing_title, is_fav ) VALUES (${listing.id}, "${listing.type}", "${listing.category}", ${listing.price}, ${listing.avgReview}, ${listing.numReview}, ${listing.numBeds}, "${listing.title}", ${listing.isFav})`;
+
+  let sql = `INSERT INTO listings VALUES (${listing.id}, '${listing.type}', '${listing.category}', ${listing.price}, ${listing.avgReview}, ${listing.numReview}, ${listing.numBeds}, '${listing.title}', ${listing.isFav})`;
   pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
@@ -65,8 +66,8 @@ const insertListing = function(listing, callback) {
 };
 
 const updateListing = function(params, callback) {
-  let sql = `UPDATE listings SET listing_id = ?, listing_type = ?, listing_category = ?, night_price = ?, avg_review = ?, num_review = ?, num_beds = ?, listing_title = ?, is_fav = ? WHERE listing_id = ${params[0]}`;
-  pool.query(sql, params, function (err, results) {
+  let sql = `UPDATE listings SET listing_id = ${params[0]}, listing_type = '${params[1]}', listing_category = '${params[2]}', night_price = ${params[3]}, avg_review = ${params[4]}, num_review = ${params[5]}, num_beds = ${params[6]}, listing_title = '${params[7]}', is_fav = ${params[8]} WHERE listing_id = ${params[0]}`;
+  pool.query(sql, function (err, results) {
     if (err) {
       callback(err, null);
     } else {
@@ -76,9 +77,10 @@ const updateListing = function(params, callback) {
 };
 
 const deleteListing = function(id, callback) {
-  let sql = 'DELETE FROM listings WHERE listing_id=?';
-  pool.query(sql, id, function (err, results) {
+  let sql = `DELETE FROM listings WHERE listing_id=${id}`;
+  pool.query(sql, function (err, results) {
     if (err) {
+      console.log('err', err);
       callback(err, null);
     } else {
       callback(null, results);
@@ -92,5 +94,6 @@ module.exports.selectImages = selectImages;
 module.exports.insertListing = insertListing;
 module.exports.updateListing = updateListing;
 module.exports.deleteListing = deleteListing;
+
 
 

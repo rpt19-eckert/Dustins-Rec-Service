@@ -46,8 +46,10 @@ app.post('/listings', function (req, res) {
 
   db.insertListing(req.body, function(err, results) {
     if (err) {
+      console.log('err', err);
       res.sendStatus(500);
     } else {
+      console.log('results:', results);
       res.sendStatus(201);
     }
     res.end();
@@ -70,7 +72,7 @@ app.put('/listings', function(req, res) {
 
 });
 
-app.delete('/listings:id', function(req, res) {
+app.delete('/listings', function(req, res) {
   db.deleteListing([req.query.id], function(err, data) {
     if (err) {
       res.sendStatus(500);

@@ -59,13 +59,10 @@ app.put('/listings', function(req, res) {
   for (let each in req.body) {
     queryParams.push(req.body[each]);
   }
-  console.log('req.body', req.body);
   db.updateListing(queryParams, (err, results) => {
     if (err) {
-      console.log('error', err);
       res.sendStatus(500);
     } else {
-      console.log('res', results);
       res.sendStatus(202);
     }
     res.end();

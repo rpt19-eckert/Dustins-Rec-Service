@@ -18,15 +18,15 @@ pool.connect(function(err) {
 });
 
 const selectAll = function(listing, callback) {
-  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing4 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing5 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
   let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  connection.query(sql, function(err, results, fields) {
+  pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -36,15 +36,15 @@ const selectAll = function(listing, callback) {
 };
 
 const selectImages = function(listing, callback) {
-  let ramdomListing1 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing2 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing3 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing4 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing5 = Math.floor(Math.random() * 100) + 10001;
-  let ramdomListing6 = Math.floor(Math.random() * 100) + 10001;
+  let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing4 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing5 = Math.floor(Math.random() * 10000000) + 10001;
+  let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
-  let sql = `SELECT * FROM listing_images WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  connection.query(sql, function(err, results, fields) {
+  let sql = `SELECT * FROM images WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
+  pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {

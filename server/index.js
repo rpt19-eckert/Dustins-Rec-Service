@@ -34,8 +34,8 @@ app.get('/listings', function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log('get listings', data);
-      res.json(data);
+      // console.log('get listings', data.rows);
+      res.json(data.rows);
     }
   });
 });
@@ -84,10 +84,11 @@ app.delete('/listings:id', function(req, res) {
 app.get('/images', function (req, res) {
   db.selectImages(req.body, function(err, data) {
     if (err) {
+      console.log('err', err)
       res.sendStatus(500);
     } else {
-      console.log('get images', data);
-      res.json(data);
+      const images = [data.rows[0].image_url_1, data.rows[0].image_url_2, data.rows[0].image_url_3, data.rows[0].image_url_4, data.rows[0].image_url_5, data.rows[0].image_url_6];
+      res.json(images);
     }
   });
 });

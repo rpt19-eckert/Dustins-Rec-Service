@@ -24,8 +24,15 @@ coverage
 build/
 #dist/
 
+# Testing Results
+report.json
+loadTest.yml
+
 #SeedDataFiles
 imageSeedData.csv
 listingSeedData.csv
 database/listing.json
+
+#apiKeys
+newrelic.js
 

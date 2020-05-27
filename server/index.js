@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database');
@@ -84,7 +85,7 @@ app.delete('/listings', function(req, res) {
 app.get('/images', function (req, res) {
   db.selectImages(req.body, function(err, data) {
     if (err) {
-      console.log('err', err)
+      // console.log('err', err)
       res.sendStatus(500);
     } else {
       const images = [data.rows[0].image_url_1, data.rows[0].image_url_2, data.rows[0].image_url_3, data.rows[0].image_url_4, data.rows[0].image_url_5, data.rows[0].image_url_6];

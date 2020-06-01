@@ -62,6 +62,7 @@ app.put('/listings', function(req, res) {
   }
   db.updateListing(queryParams, (err, results) => {
     if (err) {
+      console.log('err', err);
       res.sendStatus(500);
     } else {
       res.sendStatus(202);

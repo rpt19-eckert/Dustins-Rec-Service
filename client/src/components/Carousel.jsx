@@ -1,12 +1,12 @@
-//import React from 'react';
-//import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import RightArrow from './RightArrow.jsx';
 import LeftArrow from './LeftArrow.jsx';
 import ImageSlide from './ImageSlide.jsx';
 import Favorite from './Favorite.jsx';
 import sampleData from './sampleData.js';
 import DotsContainer from './DotsContainer.jsx';
-//import $ from 'jquery';
+import $ from 'jquery';
 
 
 
@@ -29,7 +29,7 @@ class Carousel extends React.Component {
       const id = this.props.listingId.listing_id;
       console.log('listingid', this.props.listingId.listing_id);
       $.ajax({
-        url: '/images',
+        url: 'http://localhost:3003/images',
         data: {listingId: id},
         success: (data) => {
           console.log('from db', data);

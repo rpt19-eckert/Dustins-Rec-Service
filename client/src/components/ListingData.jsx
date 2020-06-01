@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from 'react';
 import $ from 'jquery';
 import ListingSlider from './ListingSlider.jsx';
 import sampleData from './sampleData.js';
@@ -16,13 +16,13 @@ class ListingData extends React.Component {
   componentDidMount() {
 
     $.ajax({
-      url: '/listings',
+      url: 'http://localhost:3003/listings',
       success: (data) => {
         this.setState({
           listings: data
 
         }, () => {
-          // console.log('new state', this.state);
+          console.log('new state', this.state);
         });
       },
       error: (err) => {

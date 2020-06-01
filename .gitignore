@@ -26,9 +26,11 @@ build/
 
 # Testing Results
 report.json
-loadTest.yml
+loadTestGet.yml
+loadTestUpdate.yml
 
 #SeedDataFiles
+postListings.csv
 imageSeedData.csv
 listingSeedData.csv
 database/listing.json

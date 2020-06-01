@@ -13,10 +13,12 @@
     "schema": "node database/seedDB.js",
     "createListingSeed": "node --max-old-space-size=4096 database/createListingData",
     "createImageSeed": "node --max-old-space-size=4096 database/createImageData",
+    "createPostListings": "node database/createListingData",
     "test": "jest --runInBand --detectOpenHandles",
-    "load-test": "artillery run -o report.json specs/loadTest.yml",
-    "quick-test": "artillery quick --count 10 -n 100 http://localhost:3003/listings",
-    "load-report": "artillery report report.json"
+    "load-test-get": "artillery run -o report1.json specs/loadTestGet.yml",
+    "load-test-update": "artillery run -o report.json specs/loadTestUpdate.yml",
+    "quick-test-update": "artillery quick --count 20 -n 1000 --payload postListings.csv --output report.json http://localhost:3003/listings"
+
   },
   "dependencies": {
     "babel": "^6.23.0",

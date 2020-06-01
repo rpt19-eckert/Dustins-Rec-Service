@@ -1,16 +1,23 @@
 const fs = require('fs');
-const file = fs.createWriteStream('./listingSeedData.csv');
+//for artillery testing
+const file = fs.createWriteStream('./postListings.csv');
+
+//seed Db for listings table
+// const file = fs.createWriteStream('./listingSeedData.csv');
 const loremIpsum = require('lorem-ipsum').loremIpsum;
 
 const listingTypeOptions = ['Entire place', 'Private room', 'Hotel room', 'Shared room'];
 const listingCategoryOptions = ['apartment', 'house', 'hotel', 'cabin', 'bnb'];
 const listingColumnNames = 'listing_id, listing_type, listing_category, night_price, avg_review, num_review, number_beds, listing_title, is_fav';
-
 file.write(listingColumnNames);
 
-// seedDB for listings table
-for (let i = 0; i < 1e7; i++) {
-  let listingId = i + 10001;
+  // for artillery testing in postListings.csv
+for (let i = 0; i < 40000; i++) {
+    let listingId = 1e7 - 50000;
+
+  // seedDB for listings table
+// for (let i = 0; i < 1ey; i++) {
+//   let listingId = 10001+ i;
   let listingType = listingTypeOptions[Math.floor(Math.random() * 4)];
   let listingCategory = listingCategoryOptions[Math.floor(Math.random() * 5)];
   let nightPrice = 100 + Math.random() * 100;

@@ -1,0 +1,55 @@
+config:
+  target: "http://localhost:3003"
+  phases:
+    - duration: 20
+      arrivalRate: 1
+      rampTo: 99
+      name: "warm up"
+    - duration: 10
+      arrivalRate: 100
+      name: "phase 1"
+    - duration: 10
+      arrivalRate: 250
+      name: "phase 2"
+    - duration: 10
+      arrivalRate: 500
+      name: "phase 3"
+    - duration: 10
+      arrivalRate: 1000
+      name: "phase 4"
+    - duration: 10
+      arrivalRate: 2000
+      name: "phase 5"
+  defaults:
+  payload:
+    path: "../postListings.csv"
+    delimiter: ","
+    fields:
+      - "listing_id"
+      - "listing_type"
+      - "listing_category"
+      - "night_price"
+      - "avg_review"
+      - "num_review"
+      - "num_beds"
+      - "listing_title"
+      - "is_fav"
+  http:
+    timeout: 10
+scenarios:
+  - flow:
+    - put:
+        url: "/listings"
+        json:
+          listing_id: "{{ listing_id }}"
+          listing_type: "{{ listing_type }}"
+          listing_category: "{{ listing_category }}"
+          night_price: "{{ night_price }}"
+          avg_review: "{{ avg_review }}"
+          num_review: "{{ num_review }}"
+          num_beds: "{{ num_beds }}"
+          listing_title: "{{ listing_title  }}"
+          is_fav: "{{ is_fav }}"
+
+
+

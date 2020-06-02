@@ -25,6 +25,9 @@ build/
 #dist/
 
 # Testing Results
+report.json
+report.json.html
+report1.json
 
 #SeedDataFiles
 postListings.csv

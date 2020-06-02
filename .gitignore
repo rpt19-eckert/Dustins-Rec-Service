@@ -25,9 +25,6 @@ build/
 #dist/
 
 # Testing Results
-report.json
-loadTestGet.yml
-loadTestUpdate.yml
 
 #SeedDataFiles
 postListings.csv

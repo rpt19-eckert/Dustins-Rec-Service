@@ -17,8 +17,6 @@
     "test": "jest --runInBand --detectOpenHandles",
     "load-test-get": "artillery run -o report1.json specs/loadTestGet.yml",
     "load-test-update": "artillery run -o report.json specs/loadTestUpdate.yml",
-    "quick-test-update": "artillery quick --count 20 -n 1000 --payload postListings.csv --output report.json http://localhost:3003/listings"
-
   },
   "dependencies": {
     "babel": "^6.23.0",

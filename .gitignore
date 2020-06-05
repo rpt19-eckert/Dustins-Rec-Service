@@ -36,5 +36,5 @@ listingSeedData.csv
 database/listing.json
 
 #apiKeys
-newrelic.js
+newRelicApiKey.js
 

@@ -1,9 +1,17 @@
 const {Pool} = require('pg');
 
+// localdb
+// const pool = new Pool({
+//   host: 'localhost',
+//   user: '',
+//   password: '',
+//   database: 'dustinancalade',
+// });
 
+//aws db
 const pool = new Pool({
-  host: 'localhost',
-  user: '',
+  host: '172.31.6.166',
+  user: 'postgres',
   password: '',
   database: 'dustinancalade',
 });

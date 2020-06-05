@@ -16,21 +16,21 @@ config:
     - duration: 10
       arrivalRate: 300
       name: "phase 3"
-    - duration: 10
+    - duration: 60
       arrivalRate: 400
       name: "phase 4"
-    - duration: 10
-      arrivalRate: 500
-      name: "phase 5"
-    - duration: 10
-      arrivalRate: 750
-      name: "phase 6"
-    - duration: 10
-      arrivalRate: 1500
-      name: "phase 7"
-    - duration: 600
-      arrivalRate: 2000
-      name: "phase 8"
+    # - duration: 60
+    #   arrivalRate: 500
+    #   name: "phase 5"
+    # - duration: 10
+    #   arrivalRate: 750
+    #   name: "phase 6"
+    # - duration: 10
+    #   arrivalRate: 1500
+    #   name: "phase 7"
+    # - duration: 600
+    #   arrivalRate: 2000
+    #   name: "phase 8"
 scenarios:
   - flow:
     - get:

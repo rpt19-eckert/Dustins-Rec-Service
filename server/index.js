@@ -42,6 +42,7 @@ app.get('/listings', function (req, res) {
 
 
 app.post('/listings', function (req, res) {
+  console.log('hit endpoint');
   //expects req.body to be an object with keys that include id, type, category, price, avgReview, numReview, numBeds, title, isFav
 
   db.insertListing(req.body, function(err, results) {

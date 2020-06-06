@@ -10,22 +10,25 @@ const {Pool} = require('pg');
 
 //aws db
 const pool = new Pool({
-  host: '172.31.6.166',
+  host: 'ec2-54-219-244-52.us-west-1.compute.amazonaws.com',
   user: 'postgres',
-  password: '',
+  password: 'postgres',
   database: 'dustinancalade',
+  idleTimeoutMillis: 200000,
+  port: 5432
 });
 
-
-
-pool.connect(function(err) {
+pool.connect((err) => {
   if (err) {
-    throw err;
+    console.log('err', err);
+  } else {
+    console.log('db. connected')
   }
-  console.log('Connected to DB!');
-});
+})
+
 
 const selectAll = function(listing, callback) {
+  console.log('in db request')
   let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;
@@ -33,11 +36,14 @@ const selectAll = function(listing, callback) {
   let ramdomListing5 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
-  let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  pool.query(sql, function(err, results, fields) {
+  // let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
+  // console.log('sql', sql);
+  pool.query('SELECT * FROM listings WHERE listing_id = 1000000', function(err, results, fields) {
     if (err) {
+      console.log('error', err);
       callback(err, null);
     } else {
+      console.log('in response');
       callback(null, results);
     }
   });
@@ -95,7 +101,6 @@ const deleteListing = function(id, callback) {
     }
   });
 };
-
 
 module.exports.selectAll = selectAll;
 module.exports.selectImages = selectImages;

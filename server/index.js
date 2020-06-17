@@ -33,10 +33,8 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
     if (err) {
-      console.log('err', err);
       res.sendStatus(500);
     } else {
-      console.log('data', data.rows);
       res.json(data.rows);
     }
   });

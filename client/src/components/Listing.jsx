@@ -12,11 +12,13 @@ class Listing extends React.Component {
   handleClick (e) {
     console.log('handleClick');
     e.preventDefault();
+    // local
     location.href = 'http://localhost:3000/' + this.props.details.listing_id;
+    // deployed
+    // location.href = 'http://ec2-54-219-244-52.us-west-1.compute.amazonaws.com/images' + this.props.details.listing_id;
   }
 
   render () {
-    console.log('details', this.props.details);
     return (
       <span onClick={this.handleClick}>
         <ListItem detail={this.props.details}/>

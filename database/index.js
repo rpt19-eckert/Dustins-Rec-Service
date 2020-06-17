@@ -11,8 +11,8 @@ const {Pool} = require('pg');
 //aws db
 const pool = new Pool({
   host: 'ec2-54-219-244-52.us-west-1.compute.amazonaws.com',
-  user: 'postgres',
-  password: 'postgres',
+  user: 'dkancalade',
+  password: 'dkancalade',
   database: 'dustinancalade',
   idleTimeoutMillis: 200000,
   port: 5432
@@ -40,7 +40,7 @@ const selectAll = function(listing, callback) {
   // console.log('sql', sql);
   pool.query('SELECT * FROM listings WHERE listing_id = 1000000', function(err, results, fields) {
     if (err) {
-      console.log('error', err);
+      console.log('error in selectAll', err);
       callback(err, null);
     } else {
       console.log('in response');

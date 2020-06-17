@@ -29,7 +29,10 @@ class Carousel extends React.Component {
       const id = this.props.listingId.listing_id;
       console.log('listingid', this.props.listingId.listing_id);
       $.ajax({
+        //local
         url: 'http://localhost:3003/images',
+        //ec2
+        // url: 'http://ec2-54-219-244-52.us-west-1.compute.amazonaws.com/images',
         data: {listingId: id},
         success: (data) => {
           console.log('from db', data);

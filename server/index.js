@@ -32,7 +32,10 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
+    console.log('in db request'
+    );
     if (err) {
+      console.log('err', err);
       res.sendStatus(500);
     } else {
       console.log('data', data);

@@ -32,13 +32,11 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
-    console.log('in db request'
-    );
     if (err) {
       console.log('err', err);
       res.sendStatus(500);
     } else {
-      console.log('data', data);
+      console.log('data', data.rows);
       res.json(data.rows);
     }
   });
@@ -46,12 +44,10 @@ app.get('/listings', function (req, res) {
 
 
 app.post('/listings', function (req, res) {
-  console.log('hit endpoint');
   //expects req.body to be an object with keys that include id, type, category, price, avgReview, numReview, numBeds, title, isFav
 
   db.insertListing(req.body, function(err, results) {
     if (err) {
-      console.log('err', err);
       res.sendStatus(500);
     } else {
       res.sendStatus(201);

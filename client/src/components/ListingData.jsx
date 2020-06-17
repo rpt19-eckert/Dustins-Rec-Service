@@ -21,6 +21,7 @@ class ListingData extends React.Component {
       //deployed
       // url: 'http://ec2-54-219-244-52.us-west-1.compute.amazonaws.com/listings',
       success: (data) => {
+        console.log('data', data);
         this.setState({
           listings: data
 

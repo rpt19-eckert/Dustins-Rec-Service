@@ -38,12 +38,10 @@ const selectAll = function(listing, callback) {
 
   // let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
   // console.log('sql', sql);
-  pool.query('SELECT * FROM listings WHERE listing_id = 1000000', function(err, results, fields) {
+  pool.query(`SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`, function(err, results, fields) {
     if (err) {
-      console.log('error in selectAll', err);
       callback(err, null);
     } else {
-      console.log('in response');
       callback(null, results);
     }
   });
@@ -94,7 +92,6 @@ const deleteListing = function(id, callback) {
   let sql = `DELETE FROM listings WHERE listing_id=${id}`;
   pool.query(sql, function (err, results) {
     if (err) {
-      console.log('err', err);
       callback(err, null);
     } else {
       callback(null, results);

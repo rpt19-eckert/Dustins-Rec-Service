@@ -31,3 +31,14 @@ Listing.sync({force: true});
   }, {sequelize, modelName: 'image', timestamps: false});
   Image.sync({force: true});
 
+  class Related_Listing extends Model {}
+  Related_Listing.init({
+    related_listing_id: { type: DataTypes.INTEGER, unique: true, primaryKey: true, allowNull: false},
+    listing_1_id: { type: DataTypes.INTEGER, allowNull: false},
+    listing_2_id: { type: DataTypes.INTEGER, allowNull: false},
+    listing_3_id: { type: DataTypes.INTEGER, allowNull: false},
+    listing_4_id: { type: DataTypes.INTEGER, allowNull: false},
+    listing_5_id: { type: DataTypes.INTEGER, allowNull: false},
+
+  }, {sequelize, modelName: 'related_listing', timestamps: false});
+  Related_Listing.sync({force: true});

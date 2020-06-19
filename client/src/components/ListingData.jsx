@@ -19,7 +19,7 @@ class ListingData extends React.Component {
       // local
       url: 'http://localhost:3003/listings',
       //deployed
-      // url: 'http://ec2-54-219-244-52.us-west-1.compute.amazonaws.com/listings',
+      // url: 'http://ec2-3-101-46-200.us-west-1.compute.amazonaws.com:3003/listings',
       success: (data) => {
         console.log('data', data);
         this.setState({

@@ -32,7 +32,7 @@ class Carousel extends React.Component {
         //local
         url: 'http://localhost:3003/images',
         //ec2
-        // url: 'http://ec2-54-219-244-52.us-west-1.compute.amazonaws.com/images',
+        // url: 'http://ec2-3-101-46-200.us-west-1.compute.amazonaws.com:3003/images',
         data: {listingId: id},
         success: (data) => {
           console.log('from db', data);

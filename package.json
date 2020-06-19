@@ -10,10 +10,9 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --watch",
-    "schema": "node database/seedDB.js",
+    "schema": "node database/models.js",
     "createListingSeed": "node --max-old-space-size=4096 database/createListingData",
     "createImageSeed": "node --max-old-space-size=4096 database/createImageData",
-    "createPostListings": "node database/createListingData",
     "test": "jest --runInBand --detectOpenHandles",
     "load-test-get": "artillery run -o report1.json specs/loadTestGet.yml",
     "load-test-update": "artillery run -o report.json specs/loadTestUpdate.yml"

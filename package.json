@@ -11,6 +11,7 @@
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --watch",
     "schema": "node database/models.js",
+    "createRelatedListingSeed": "node --max-old-space-size=4096 database/createRelatedListingData",
     "createListingSeed": "node --max-old-space-size=4096 database/createListingData",
     "createImageSeed": "node --max-old-space-size=4096 database/createImageData",
     "test": "jest --runInBand --detectOpenHandles",

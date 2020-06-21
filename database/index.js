@@ -47,6 +47,25 @@ const selectAll = function(listing, callback) {
   });
 };
 
+
+const selectRelatedListings = function(listing, callback) {
+  const sqlA = `select listing_1_id, listing_2_id, listing_3_id, listing_4_id, listing_5_id, listing_6_id from related_listings where related_listing_id = ${listing}`;
+  pool.query(sqlA, (err, res) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      const sql2 = `SELECT * FROM listings where listing_id IN (${res.rows[0]['listing_1_id']}, ${res.rows[0]['listing_2_id']}, ${res.rows[0]['listing_3_id']}, ${res.rows[0]['listing_4_id']}, ${res.rows[0]['listing_5_id']}, ${res.rows[0]['listing_6_id']})`;
+      pool.query(sql2, (err, finalRes) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, finalRes);
+        }
+      });
+    }
+  });
+};
+
 const selectImages = function(listing, callback) {
   let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
@@ -60,6 +79,8 @@ const selectImages = function(listing, callback) {
     if (err) {
       callback(err, null);
     } else {
+      console.log('results', results
+      );
       callback(null, results);
     }
   });
@@ -104,5 +125,12 @@ module.exports.selectImages = selectImages;
 module.exports.insertListing = insertListing;
 module.exports.updateListing = updateListing;
 module.exports.deleteListing = deleteListing;
+module.exports.selectRelatedListings = selectRelatedListings;
 
 
+
+
+// const sqlRLQ = (num, id) => {
+// return `SELECT listing_${num}_id from related_listings where related_listing_id = ${id}`;
+// };
+// const sql = `SELECT * from listings WHERE listing_id = (${sqlRLQ(1, listing)} and related_listings.related_listing_id = ${listing}) and listing_id = (${sqlRLQ(2, listing)} and related_listings.related_listing_id = ${listing})`;

@@ -10,7 +10,6 @@ class Listing extends React.Component {
   }
 
   handleClick (e) {
-    console.log('handleClick');
     e.preventDefault();
     // local
     location.href = 'http://localhost:3000/' + this.props.details.listing_id;

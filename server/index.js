@@ -30,12 +30,24 @@ app.use(bodyParser.urlencoded( {extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/listings', function (req, res) {
-  db.selectAll(req.body, function(err, data) {
+// app.get('/listings', function (req, res) {
+//   db.selectAll(req.body, function(err, data) {
+//     if (err) {
+//       res.sendStatus(500);
+//     } else {
+//       res.json(data.rows);
+//     }
+//   });
+// });
+
+app.get('/listings/:id', function (req, res) {
+  db.selectRelatedListings(req.params.id, function(err, data) {
     if (err) {
       res.sendStatus(500);
     } else {
+      console.log('file sent');
       res.json(data.rows);
+      res.end();
     }
   });
 });
@@ -95,6 +107,7 @@ app.get('/images', function (req, res) {
 });
 
 app.get('/:id', (req, res) => {
+  console.log('sending page to proxy');
   res.sendFile(path.join(__dirname, '../client/dist', '/index.html'));
 });
 

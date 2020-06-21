@@ -33,6 +33,7 @@ report1.json
 postListings.csv
 imageSeedData.csv
 listingSeedData.csv
+relatedListingSeedData.csv
 database/listing.json
 
 #apiKeys

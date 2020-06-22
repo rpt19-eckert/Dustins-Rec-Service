@@ -14,7 +14,6 @@ class DotsContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // console.log('props updated');
     if (prevProps.index < this.props.index && this.props.index > 2) {
       this.nextIndex();
     } else if (prevProps.index > this.props.index && this.props.index < this.props.imgUrls.length - 3) {
@@ -23,19 +22,17 @@ class DotsContainer extends React.Component {
   }
 
   previousIndex () {
-    // console.log('previous index');
+
     let container = document.getElementById('dotsContainer' + this.props.listingId);
     this.sideScroll(container, 'left', 20, 11, 1);
   }
 
   nextIndex () {
-    // console.log('next index');
     let container = document.getElementById('dotsContainer' + this.props.listingId);
     this.sideScroll(container, 'right', 20, 11, 1);
   }
 
   sideScroll (element, direction, speed, distance, step) {
-    //console.log('current index: ', this.props.index);
     let scrollAmount = 0;
     let slideTimer = setInterval(() => {
       if (direction === 'left') {

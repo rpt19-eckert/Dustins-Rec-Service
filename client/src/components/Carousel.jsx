@@ -34,7 +34,6 @@ class Carousel extends React.Component {
         // url: 'http://ec2-3-101-46-200.us-west-1.compute.amazonaws.com:3003/images',
         data: {listingId: id},
         success: (data) => {
-          console.log('from db', data);
           //refactor when connecting to proxy
           // let thisListingImages = {};
           // const imageValues = Object.values(data[0]);

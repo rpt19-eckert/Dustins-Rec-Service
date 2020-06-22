@@ -24,12 +24,12 @@ class ListingData extends React.Component {
         //deployed
         // url: 'http://ec2-3-101-46-200.us-west-1.compute.amazonaws.com:3003/listings',
         success: (data) => {
-          console.log('data', data);
+          // console.log('data', data);
           this.setState({
             listings: data
 
           }, () => {
-            console.log('new state', this.state);
+            // console.log('new state', this.state);
           });
         },
         error: (err) => {

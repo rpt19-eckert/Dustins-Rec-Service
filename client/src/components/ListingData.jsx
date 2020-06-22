@@ -17,6 +17,9 @@ class ListingData extends React.Component {
   componentDidMount() {
     const hrefArray = location.href.split('/');
     const newId = hrefArray[hrefArray.length - 1];
+    if (newId === 'listings') {
+      newId = listingId;
+    }
     this.setState({listingId: newId}, () => {
       $.ajax({
         // local

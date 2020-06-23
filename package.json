@@ -11,7 +11,7 @@
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js --watch",
     "schema": "node database/models.js",
-    "deploy-dev": "concurrently --kill-others \"npm run start-watch\" \"npm run wp-server\"",
+    "deploy-dev": "concurrently --kill-others \"npm run start\" \"npm run react-dev\"",
     "createRelatedListingSeed": "node --max-old-space-size=4096 database/createRelatedListingData",
     "createListingSeed": "node --max-old-space-size=4096 database/createListingData",
     "createImageSeed": "node --max-old-space-size=4096 database/createImageData",

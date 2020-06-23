@@ -40,6 +40,21 @@ app.use(express.static(__dirname + '/../client/dist'));
 //   });
 // });
 
+app.get('/loaderio-317b6cddee4e5fb2d20bdde3d2722c60', function (req, res) {
+  console.log('in request');
+  const options = {
+    root: path.join(__dirname, '../')
+  }
+  res.sendFile('loaderio-317b6cddee4e5fb2d20bdde3d2722c60.txt', options, (err) => {
+    if (err) {
+      console.log('err', err);
+    } else {
+      console.log('Sent');
+    }
+  });
+
+});
+
 app.get('/listings/:id', function (req, res) {
   db.selectRelatedListings(req.params.id, function(err, data) {
     if (err) {
@@ -51,6 +66,8 @@ app.get('/listings/:id', function (req, res) {
     }
   });
 });
+
+
 
 
 app.post('/listings', function (req, res) {
@@ -105,7 +122,7 @@ app.get('/images', function (req, res) {
 });
 
 app.get('/:id', (req, res) => {
-  console.log('sending page to proxy');
+  // console.log('sending page to proxy');
   res.sendFile(path.join(__dirname, '../client/dist', '/index.html'));
 });
 

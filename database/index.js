@@ -79,8 +79,7 @@ const selectImages = function(listing, callback) {
     if (err) {
       callback(err, null);
     } else {
-      console.log('results', results
-      );
+      // console.log('results', results);
       callback(null, results);
     }
   });

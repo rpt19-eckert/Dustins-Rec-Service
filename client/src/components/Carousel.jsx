@@ -27,12 +27,13 @@ class Carousel extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.listingId !== this.props.listingId) {
       const id = this.props.listingId.listing_id;
-      console.log('listingid', this.props.listingId.listing_id);
       $.ajax({
+        //local
         url: 'http://localhost:3003/images',
+        //ec2
+        // url: 'http://ec2-3-101-46-200.us-west-1.compute.amazonaws.com:3003/images',
         data: {listingId: id},
         success: (data) => {
-          console.log('from db', data);
           //refactor when connecting to proxy
           // let thisListingImages = {};
           // const imageValues = Object.values(data[0]);
@@ -65,8 +66,8 @@ class Carousel extends React.Component {
   }
 
   previousSlide () {
-    // console.log('previous slide props', this.props);
-    // console.log('state current image index', this.state.currentImageIndex);
+    console.log('previous slide props', this.props);
+    console.log('state current image index', this.state.currentImageIndex);
     const lastIndex = this.state.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === 0;
@@ -78,8 +79,8 @@ class Carousel extends React.Component {
   }
 
   nextSlide () {
-    // console.log('next slide props', this.props);
-    // console.log('state current image index', this.state.currentImageIndex);
+    console.log('next slide props', this.props);
+    console.log('state current image index', this.state.currentImageIndex);
     const lastIndex = this.state.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;

@@ -12,12 +12,12 @@ const listingColumnNames = 'listing_id, listing_type, listing_category, night_pr
 file.write(listingColumnNames);
 
   // for artillery testing in postListings.csv
-for (let i = 0; i < 40000; i++) {
-    let listingId = 1e7 - 50000;
+// for (let i = 0; i < 40000; i++) {
+//     let listingId = 1e7 - 50000;
 
   // seedDB for listings table
-// for (let i = 0; i < 1ey; i++) {
-//   let listingId = 10001+ i;
+for (let i = 0; i < 1e7; i++) {
+  let listingId = 10001+ i;
   let listingType = listingTypeOptions[Math.floor(Math.random() * 4)];
   let listingCategory = listingCategoryOptions[Math.floor(Math.random() * 5)];
   let nightPrice = 100 + Math.random() * 100;

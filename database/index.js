@@ -1,23 +1,34 @@
 const {Pool} = require('pg');
 
+// localdb
+// const pool = new Pool({
+//   host: 'localhost',
+//   user: '',
+//   password: '',
+//   database: 'dustinancalade',
+// });
 
+//aws db
 const pool = new Pool({
-  host: 'localhost',
-  user: '',
-  password: '',
+  host: 'ec2-54-219-244-52.us-west-1.compute.amazonaws.com',
+  user: 'dkancalade',
+  password: 'dkancalade',
   database: 'dustinancalade',
+  idleTimeoutMillis: 200000,
+  port: 5432
 });
 
-
-
-pool.connect(function(err) {
+pool.connect((err) => {
   if (err) {
-    throw err;
+    console.log('err', err);
+  } else {
+    console.log('db. connected')
   }
-  console.log('Connected to DB!');
-});
+})
+
 
 const selectAll = function(listing, callback) {
+  console.log('in db request')
   let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;
@@ -25,12 +36,32 @@ const selectAll = function(listing, callback) {
   let ramdomListing5 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
-  let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  pool.query(sql, function(err, results, fields) {
+  // let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
+  // console.log('sql', sql);
+  pool.query(`SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
       callback(null, results);
+    }
+  });
+};
+
+
+const selectRelatedListings = function(listing, callback) {
+  const sqlA = `select listing_1_id, listing_2_id, listing_3_id, listing_4_id, listing_5_id, listing_6_id from related_listings where related_listing_id = ${listing}`;
+  pool.query(sqlA, (err, res) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      const sql2 = `SELECT * FROM listings where listing_id IN (${res.rows[0]['listing_1_id']}, ${res.rows[0]['listing_2_id']}, ${res.rows[0]['listing_3_id']}, ${res.rows[0]['listing_4_id']}, ${res.rows[0]['listing_5_id']}, ${res.rows[0]['listing_6_id']})`;
+      pool.query(sql2, (err, finalRes) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, finalRes);
+        }
+      });
     }
   });
 };
@@ -48,6 +79,7 @@ const selectImages = function(listing, callback) {
     if (err) {
       callback(err, null);
     } else {
+      // console.log('results', results);
       callback(null, results);
     }
   });
@@ -80,7 +112,6 @@ const deleteListing = function(id, callback) {
   let sql = `DELETE FROM listings WHERE listing_id=${id}`;
   pool.query(sql, function (err, results) {
     if (err) {
-      console.log('err', err);
       callback(err, null);
     } else {
       callback(null, results);
@@ -88,11 +119,17 @@ const deleteListing = function(id, callback) {
   });
 };
 
-
 module.exports.selectAll = selectAll;
 module.exports.selectImages = selectImages;
 module.exports.insertListing = insertListing;
 module.exports.updateListing = updateListing;
 module.exports.deleteListing = deleteListing;
+module.exports.selectRelatedListings = selectRelatedListings;
 
 
+
+
+// const sqlRLQ = (num, id) => {
+// return `SELECT listing_${num}_id from related_listings where related_listing_id = ${id}`;
+// };
+// const sql = `SELECT * from listings WHERE listing_id = (${sqlRLQ(1, listing)} and related_listings.related_listing_id = ${listing}) and listing_id = (${sqlRLQ(2, listing)} and related_listings.related_listing_id = ${listing})`;

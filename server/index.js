@@ -18,7 +18,7 @@ app.get('/loaderio-317b6cddee4e5fb2d20bdde3d2722c60', function (req, res) {
   const options = {
     root: path.join(__dirname, '../')
   }
-  res.sendFile('loaderio-317b6cddee4e5fb2d20bdde3d2722c60.txt', options, (err) => {
+  res.sendFile('loaderio-8752c46ffdfa877235862011497a3737.txt', options, (err) => {
     if (err) {
       console.log('err', err);
     } else {

@@ -13,11 +13,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/loaderio-317b6cddee4e5fb2d20bdde3d2722c60', function (req, res) {
+app.get('/loaderio-8752c46ffdfa877235862011497a3737.txt', function (req, res) {
   console.log('in request');
   const options = {
     root: path.join(__dirname, '../')
-  }
+  };
   res.sendFile('loaderio-8752c46ffdfa877235862011497a3737.txt', options, (err) => {
     if (err) {
       console.log('err', err);
@@ -44,25 +44,24 @@ app.use(bodyParser.urlencoded( {extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
-// app.get('/listings', function (req, res) {
-//   db.selectAll(req.body, function(err, data) {
-//     if (err) {
-//       res.sendStatus(500);
-//     } else {
-//       res.json(data.rows);
-//     }
-//   });
-// });
+app.get('/listings', function (req, res) {
+  db.selectAll(req.body, function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data.rows);
+      res.end();
+    }
+  });
+});
 
 
 app.get('/listings/:id', function (req, res) {
   db.selectRelatedListings(req.params.id, function(err, data) {
     if (err) {
-      res.sendStatus(500);
+      res.sendStatus(500).end();
     } else {
-      console.log('file sent');
-      res.json(data.rows);
-      res.end();
+      res.json(data.rows).end();
     }
   });
 });
@@ -124,6 +123,7 @@ app.get('/images', function (req, res) {
 app.get('/:id', (req, res) => {
   // console.log('sending page to proxy');
   res.sendFile(path.join(__dirname, '../client/dist', '/index.html'));
+  res.end();
 });
 
 app.listen(port, function() {

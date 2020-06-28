@@ -18,14 +18,15 @@ const pool = new Pool({
   port: 5432
 });
 
-pool.connect((err) => {
+pool.connect((err, client, release) => {
   if (err) {
     console.log('err', err);
   } else {
-    console.log('db. connected')
-  }
-})
+    console.log('db. connected');
 
+
+  }
+});
 
 const selectAll = function(listing, callback) {
   console.log('in db request')
@@ -36,9 +37,7 @@ const selectAll = function(listing, callback) {
   let ramdomListing5 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
-  // let sql = `SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  // console.log('sql', sql);
-  pool.query(`SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`, function(err, results, fields) {
+  return pool.query(`SELECT * FROM listings WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -50,12 +49,12 @@ const selectAll = function(listing, callback) {
 
 const selectRelatedListings = function(listing, callback) {
   const sqlA = `select listing_1_id, listing_2_id, listing_3_id, listing_4_id, listing_5_id, listing_6_id from related_listings where related_listing_id = ${listing}`;
-  pool.query(sqlA, (err, res) => {
+  return pool.query(sqlA, (err, res) => {
     if (err) {
       callback(err, null);
     } else {
       const sql2 = `SELECT * FROM listings where listing_id IN (${res.rows[0]['listing_1_id']}, ${res.rows[0]['listing_2_id']}, ${res.rows[0]['listing_3_id']}, ${res.rows[0]['listing_4_id']}, ${res.rows[0]['listing_5_id']}, ${res.rows[0]['listing_6_id']})`;
-      pool.query(sql2, (err, finalRes) => {
+      return pool.query(sql2, (err, finalRes) => {
         if (err) {
           callback(err, null);
         } else {
@@ -75,7 +74,7 @@ const selectImages = function(listing, callback) {
   let ramdomListing6 = Math.floor(Math.random() * 10000000) + 10001;
 
   let sql = `SELECT * FROM images WHERE listing_id IN (${ramdomListing1},${ramdomListing2},${ramdomListing3},${ramdomListing4},${ramdomListing5},${ramdomListing6})`;
-  pool.query(sql, function(err, results, fields) {
+  return pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -88,7 +87,7 @@ const selectImages = function(listing, callback) {
 const insertListing = function(listing, callback) {
 
   let sql = `INSERT INTO listings VALUES (${listing.id}, '${listing.type}', '${listing.category}', ${listing.price}, ${listing.avgReview}, ${listing.numReview}, ${listing.numBeds}, '${listing.title}', ${listing.isFav})`;
-  pool.query(sql, function(err, results, fields) {
+  return pool.query(sql, function(err, results, fields) {
     if (err) {
       callback(err, null);
     } else {
@@ -99,7 +98,7 @@ const insertListing = function(listing, callback) {
 
 const updateListing = function(params, callback) {
   let sql = `UPDATE listings SET listing_id = ${params[0]}, listing_type = '${params[1]}', listing_category = '${params[2]}', night_price = ${params[3]}, avg_review = ${params[4]}, num_review = ${params[5]}, num_beds = ${params[6]}, listing_title = '${params[7]}', is_fav = ${params[8]} WHERE listing_id = ${params[0]}`;
-  pool.query(sql, function (err, results) {
+  return pool.query(sql, function (err, results) {
     if (err) {
       callback(err, null);
     } else {
@@ -110,7 +109,7 @@ const updateListing = function(params, callback) {
 
 const deleteListing = function(id, callback) {
   let sql = `DELETE FROM listings WHERE listing_id=${id}`;
-  pool.query(sql, function (err, results) {
+  return pool.query(sql, function (err, results) {
     if (err) {
       callback(err, null);
     } else {
@@ -118,6 +117,7 @@ const deleteListing = function(id, callback) {
     }
   });
 };
+
 
 module.exports.selectAll = selectAll;
 module.exports.selectImages = selectImages;

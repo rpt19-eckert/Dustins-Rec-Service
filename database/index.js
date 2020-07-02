@@ -14,7 +14,7 @@ const pool = new Pool({
   user: 'dkancalade',
   password: 'dkancalade',
   database: 'dustinancalade',
-  idleTimeoutMillis: 200000,
+  max: 20,
   port: 5432
 });
 
@@ -29,7 +29,7 @@ pool.connect((err, client, release) => {
 });
 
 const selectAll = function(listing, callback) {
-  console.log('in db request')
+  // console.log('in db request')
   let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;

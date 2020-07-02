@@ -47,10 +47,9 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
     if (err) {
-      res.sendStatus(500);
+      res.sendStatus(500).end();
     } else {
-      res.json(data.rows);
-      res.end();
+      res.json(data.rows).end();
     }
   });
 });
@@ -59,10 +58,11 @@ app.get('/listings', function (req, res) {
 app.get('/listings/:id', function (req, res) {
   db.selectRelatedListings(req.params.id, function(err, data) {
     if (err) {
-      res.sendStatus(500).end();
+      res.sendStatus(500);
     } else {
-      res.json(data.rows).end();
+      res.json(data.rows);
     }
+    res.end();
   });
 });
 

@@ -14,7 +14,7 @@ const pool = new Pool({
   user: 'dkancalade',
   password: 'dkancalade',
   database: 'dustinancalade',
-  max: 20,
+  max: 2,
   port: 5432
 });
 

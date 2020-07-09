@@ -1,7 +1,12 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('dustinancalade', '', '', {
-  dialect: 'postgres'
+const sequelize = new Sequelize({
+  dialect: 'postgres',
+  database: 'dustinancalade',
+  username: 'dustinancalade',
+  password: 'dustinancalade',
+  host: 'localhost'
 });
+
 
 class Listing extends Model {}
 Listing.init({
@@ -39,6 +44,6 @@ Listing.sync({force: true});
     listing_3_id: { type: DataTypes.INTEGER, allowNull: false},
     listing_4_id: { type: DataTypes.INTEGER, allowNull: false},
     listing_5_id: { type: DataTypes.INTEGER, allowNull: false},
-
+    listing_6_id: { type: DataTypes.INTEGER, allowNull: false},
   }, {sequelize, modelName: 'related_listing', timestamps: false});
   Related_Listing.sync({force: true});

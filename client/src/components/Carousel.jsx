@@ -79,8 +79,8 @@ class Carousel extends React.Component {
   }
 
   nextSlide () {
-    console.log('next slide props', this.props);
-    console.log('state current image index', this.state.currentImageIndex);
+    // console.log('next slide props', this.props);
+    // console.log('state current image index', this.state.currentImageIndex);
     const lastIndex = this.state.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;

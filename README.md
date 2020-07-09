@@ -1,7 +1,7 @@
 # Project Name
 Airbnb Mock Recommendations Service Page
-[Tour the service](https://www.loom.com/share/5e889a77319a422187aee7aa54e3f0cb)
-[Performance Data](./StressTestGraph.png)
+- [Tour the service](https://www.loom.com/share/5e889a77319a422187aee7aa54e3f0cb)
+- [Performance Data](./StressTestGraph.png)
 
 ## Table of Contents
 
@@ -66,7 +66,7 @@ Airbnb Mock Recommendations Service Page
   5. run test suite
     - npm run load-test-get - for endpoint
     - npm run load-test-update - for endpoint
-    - npmr run load-test - for database
+    - npm run load-test - for database
 
 
 

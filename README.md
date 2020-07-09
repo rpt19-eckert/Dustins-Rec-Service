@@ -58,15 +58,15 @@ Airbnb Mock Recommendations Service Page
        - ALTER TABLE related_listings ADD CONSTRAINT fkl_5 FOREIGN KEY (listing_5_id) REFERENCES listings (listing_id);
        - ALTER TABLE related_listings ADD CONSTRAINT fkl_6 FOREIGN KEY (listing_6_id) REFERENCES listings (listing_id);
   3. run app
-    - npm start - starts development server
-    - npm react-dev - creates and watches development bundle
+      - npm start - starts development server
+      - npm react-dev - creates and watches development bundle
   4. run app if deployed
-    - npm deploy-dev - combines start and bundle script to make it easier to start up when deployed
-    - can be used at any time, but was most useful when the app was deployed
+      - npm deploy-dev - combines start and bundle script to make it easier to start up when deployed
+      - can be used at any time, but was most useful when the app was deployed
   5. run test suite
-    - npm run load-test-get - for endpoint
-    - npm run load-test-update - for endpoint
-    - npm run load-test - for database
+      - npm run load-test-get - for endpoint
+      - npm run load-test-update - for endpoint
+      - npm run load-test - for database
 
 
 

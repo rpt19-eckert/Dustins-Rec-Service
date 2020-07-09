@@ -20,9 +20,11 @@ app.get('/loaderio-8752c46ffdfa877235862011497a3737.txt', function (req, res) {
   };
   res.sendFile('loaderio-8752c46ffdfa877235862011497a3737.txt', options, (err) => {
     if (err) {
-      console.log('err', err);
+      res.sendStatus(500).end();
+      //console.log('err', err);
     } else {
-      console.log('Sent');
+      res.sendStatus(200).end();
+      //console.log('Sent');
     }
   });
 });
@@ -31,7 +33,7 @@ app.get('/bundle.js', (req, res) => {
   if (req.header('Accept-Encoding').includes('br')) {
     res.set('Content-Encoding', 'br');
     res.set('Content-Type', 'application/javascript; charset=UTF-8');
-    console.log('sent compressed file');
+    //console.log('sent compressed file');
     return res.sendFile(path.join(__dirname, '../client/dist', '/bundle.js.br'));
   } else if (req.header('Accept-Encoding').includes('gz')) {
     res.set('Content-Encoding', 'gzip');
@@ -44,6 +46,7 @@ app.use(bodyParser.urlencoded( {extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
+// old route, replaced by /listings/:id in order to make data cacheable.
 app.get('/listings', function (req, res) {
   db.selectAll(req.body, function(err, data) {
     if (err) {
@@ -53,7 +56,6 @@ app.get('/listings', function (req, res) {
     }
   });
 });
-
 
 app.get('/listings/:id', function (req, res) {
   db.selectRelatedListings(req.params.id, function(err, data) {
@@ -66,9 +68,7 @@ app.get('/listings/:id', function (req, res) {
   });
 });
 
-
-
-
+// refactor to post /listing:id && add post relatedListing:id
 app.post('/listings', function (req, res) {
   //expects req.body to be an object with keys that include id, type, category, price, avgReview, numReview, numBeds, title, isFav
 
@@ -82,6 +82,7 @@ app.post('/listings', function (req, res) {
   });
 });
 
+// refactor to put /listing:id && add post relatedListing:id
 app.put('/listings', function(req, res) {
   let queryParams = [];
   for (let each in req.body) {
@@ -98,6 +99,7 @@ app.put('/listings', function(req, res) {
 
 });
 
+// refactor to delete /listing:id && add delete relatedListing:id
 app.delete('/listings', function(req, res) {
   db.deleteListing([req.query.id], function(err, data) {
     if (err) {

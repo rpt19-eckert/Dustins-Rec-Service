@@ -1,22 +1,22 @@
 const {Pool} = require('pg');
 
-// localdb
-// const pool = new Pool({
-//   host: 'localhost',
-//   user: '',
-//   password: '',
-//   database: 'dustinancalade',
-// });
+//localdb
+const pool = new Pool({
+  host: 'localhost',
+  user: '',
+  password: '',
+  database: 'dustinancalade',
+});
 
 //aws db
-const pool = new Pool({
-  host: 'ec2-54-219-244-52.us-west-1.compute.amazonaws.com',
-  user: 'dkancalade',
-  password: 'dkancalade',
-  database: 'dustinancalade',
-  max: 2,
-  port: 5432
-});
+// const pool = new Pool({
+//   host: 'ec2-54-219-244-52.us-west-1.compute.amazonaws.com',
+//   user: 'dkancalade',
+//   password: 'dkancalade',
+//   database: 'dustinancalade',
+//   max: 2,
+//   port: 5432
+// });
 
 pool.connect((err, client, release) => {
   if (err) {
@@ -125,11 +125,3 @@ module.exports.insertListing = insertListing;
 module.exports.updateListing = updateListing;
 module.exports.deleteListing = deleteListing;
 module.exports.selectRelatedListings = selectRelatedListings;
-
-
-
-
-// const sqlRLQ = (num, id) => {
-// return `SELECT listing_${num}_id from related_listings where related_listing_id = ${id}`;
-// };
-// const sql = `SELECT * from listings WHERE listing_id = (${sqlRLQ(1, listing)} and related_listings.related_listing_id = ${listing}) and listing_id = (${sqlRLQ(2, listing)} and related_listings.related_listing_id = ${listing})`;

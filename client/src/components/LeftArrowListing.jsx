@@ -21,5 +21,3 @@ const LeftArrowListing = ({ direction, clickFunction, type }) => (
 );
 
 export default LeftArrowListing;
-
-//fill-rule="evenodd"

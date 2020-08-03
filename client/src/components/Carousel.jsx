@@ -54,7 +54,6 @@ class Carousel extends React.Component {
           this.setState({
             imgUrls: data
           }, () => {
-            console.log('new image state', this.state);
           });
 
         },

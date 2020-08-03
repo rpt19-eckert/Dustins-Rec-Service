@@ -29,9 +29,7 @@ class ListingSlider extends React.Component {
   nextListing () {
     let currentIndex = this.state.currentIndex;
     if (currentIndex < 6) {
-      this.setState({ currentIndex: currentIndex + 1}, () => {
-        console.log('this.state', this.state);
-      });
+      this.setState({ currentIndex: currentIndex + 1});
     }
     let container = document.getElementById('listingContainer');
     this.sideScroll(container, 'right', 10, 311, 10);

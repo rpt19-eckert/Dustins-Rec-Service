@@ -22,17 +22,14 @@ class ListingData extends React.Component {
     }
     this.setState({listingId: newId}, () => {
       $.ajax({
-        // local
+        // local, comment out if deploying
         url: `http://localhost:3003/listings/${this.state.listingId}`,
-        //deployed
+        //uncomment when deployed
         // url: 'http://ec2-3-101-46-200.us-west-1.compute.amazonaws.com:3003/listings',
         success: (data) => {
-          // console.log('data', data);
           this.setState({
             listings: data
 
-          }, () => {
-            // console.log('new state', this.state);
           });
         },
         error: (err) => {

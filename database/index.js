@@ -1,6 +1,6 @@
 const {Pool} = require('pg');
 
-//localdb
+//localdb comment of if deploying
 const pool = new Pool({
   host: 'localhost',
   user: '',
@@ -8,7 +8,7 @@ const pool = new Pool({
   database: 'dustinancalade',
 });
 
-//aws db
+//uncomment if using aws
 // const pool = new Pool({
 //   host: 'ec2-54-219-244-52.us-west-1.compute.amazonaws.com',
 //   user: 'dkancalade',
@@ -20,16 +20,11 @@ const pool = new Pool({
 
 pool.connect((err, client, release) => {
   if (err) {
-    console.log('err', err);
-  } else {
-    console.log('db. connected');
-
-
+    console.error(err);
   }
 });
 
 const selectAll = function(listing, callback) {
-  // console.log('in db request')
   let ramdomListing1 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing2 = Math.floor(Math.random() * 10000000) + 10001;
   let ramdomListing3 = Math.floor(Math.random() * 10000000) + 10001;
@@ -78,7 +73,6 @@ const selectImages = function(listing, callback) {
     if (err) {
       callback(err, null);
     } else {
-      // console.log('results', results);
       callback(null, results);
     }
   });

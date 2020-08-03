@@ -2,7 +2,7 @@ const fs = require('fs');
 //for artillery testing
 const file = fs.createWriteStream('./postListings.csv');
 
-//seed Db for listings table
+//to seed Db for listings table uncomment
 // const file = fs.createWriteStream('./listingSeedData.csv');
 const loremIpsum = require('lorem-ipsum').loremIpsum;
 
@@ -11,7 +11,7 @@ const listingCategoryOptions = ['apartment', 'house', 'hotel', 'cabin', 'bnb'];
 const listingColumnNames = 'listing_id, listing_type, listing_category, night_price, avg_review, num_review, number_beds, listing_title, is_fav';
 file.write(listingColumnNames);
 
-  // for artillery testing in postListings.csv
+  // uncomment for artillery testing in postListings.csv
 // for (let i = 0; i < 40000; i++) {
 //     let listingId = 1e7 - 50000;
 
